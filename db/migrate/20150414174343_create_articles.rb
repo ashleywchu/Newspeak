@@ -3,10 +3,11 @@ class CreateArticles < ActiveRecord::Migration
 		create_table :articles do |t|
 			t.string :title
 			t.text :abstract
-			t.text :source
+			t.text :sources
 			t.text :body
+			t.integer :rep
 			t.integer :author_id
-			t.interger :comment_id
+			t.integer :comment_id
 		end
 	end
 end
