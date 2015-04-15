@@ -7,16 +7,17 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 def run_seed
-	make_user
+	make_users
 	make_articles
 	make_tags
+	make_comments
 end
 
-def make_user
+def make_users
 	User.create(:name => "Shawn", :email => "shawn@awesome.com", :article_rep => 1000, :comment_rep => 500)
 	User.create(:name => "Keith", :email => "keith@awesome.com", :article_rep => 900, :comment_rep => 400)
 	User.create(:name => "Ashley", :email => "ashley@awesome.com", :article_rep => 800, :comment_rep => 300)
-	User.create(:name => "Sanj", :email => "sanj@awesome.com", :article_rep => -1000, :comment_rep => -500 )
+	User.create(:name => "Sanj", :email => "sanj@awesome.com", :article_rep => -1000, :comment_rep => -500)
 end
 
 def make_articles

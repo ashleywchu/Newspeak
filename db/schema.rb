@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150414175724) do
     t.string  "email"
     t.integer "article_rep"
     t.integer "comment_rep"
+    t.integer "comment_id"
   end
 
 end
