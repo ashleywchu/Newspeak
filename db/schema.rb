@@ -14,44 +14,56 @@
 ActiveRecord::Schema.define(version: 20150414175724) do
 
   create_table "article_tags", force: :cascade do |t|
-    t.integer "article_id"
-    t.integer "tag_id"
+    t.integer  "article_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "articles", force: :cascade do |t|
-    t.string  "title"
-    t.text    "abstract"
-    t.text    "sources"
-    t.text    "body"
-    t.integer "rep"
-    t.integer "author_id"
-    t.integer "comment_id"
-    t.integer "article_tag_id"
+    t.string   "title"
+    t.text     "abstract"
+    t.text     "sources"
+    t.text     "body"
+    t.integer  "rep"
+    t.integer  "author_id"
+    t.integer  "comment_id"
+    t.integer  "article_tag_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "comments", force: :cascade do |t|
-    t.text    "body"
-    t.integer "user_id"
-    t.integer "article_id"
-    t.integer "rep"
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "article_id"
+    t.integer  "rep"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "subscriptions", force: :cascade do |t|
-    t.integer "author_id"
-    t.integer "reader_id"
+    t.integer  "author_id"
+    t.integer  "reader_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string  "name"
-    t.integer "article_tag_id"
+    t.string   "name"
+    t.integer  "article_tag_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "name"
-    t.string  "email"
-    t.integer "article_rep"
-    t.integer "comment_rep"
-    t.integer "comment_id"
+    t.string   "name"
+    t.string   "email"
+    t.integer  "article_rep"
+    t.integer  "comment_rep"
+    t.integer  "comment_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
