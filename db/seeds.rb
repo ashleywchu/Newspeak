@@ -11,6 +11,7 @@ def run_seed
 	make_articles
 	make_tags
 	make_comments
+	make_article_tags
 end
 
 def make_users
@@ -26,13 +27,19 @@ def make_articles
 end
 
 def make_tags
-	Tag.create(:name => "Best", :article_id => 1)
-	Tag.create(:name => "West", :article_id => 2)
+	Tag.create(:name => "Best")
+	Tag.create(:name => "West")
 end
 
 def make_comments
 	Comment.create(:body => "Awesome!", :user_id => 3, :article_id => 1, :rep => 3)
 	Comment.create(:body => "Wowza", :user_id => 1, :article_id => 2, :rep => 0)
+end
+
+def make_article_tags
+	ArticleTag.create(:article_id => 1, :tag_id => 1)
+	ArticleTag.create(:article_id => 2, :tag_id => 2)
+	ArticleTag.create(:article_id => 1, :tag_id => 2)
 end
 
 run_seed

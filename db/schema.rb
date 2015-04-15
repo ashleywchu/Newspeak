@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150414175724) do
 
-  create_table "article_to_tag_associations", force: :cascade do |t|
+  create_table "article_tags", force: :cascade do |t|
     t.integer "article_id"
     t.integer "tag_id"
   end
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150414175724) do
     t.integer "rep"
     t.integer "author_id"
     t.integer "comment_id"
+    t.integer "article_tag_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -42,7 +43,7 @@ ActiveRecord::Schema.define(version: 20150414175724) do
 
   create_table "tags", force: :cascade do |t|
     t.string  "name"
-    t.integer "article_id"
+    t.integer "article_tag_id"
   end
 
   create_table "users", force: :cascade do |t|
