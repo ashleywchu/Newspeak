@@ -6,9 +6,20 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <%= analytics_init if Rails.env.production? %>
+<<<<<<< HEAD
   <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+=======
+  <%= link_to "Home", "/" %>
+  |
+  <% if current_user %>
+  <%= link_to "Logout", "/logut" %>
+  <% else %>
+  <%= link_to "Login",  "/auth/google_oauth2" %>
+  <% end %>
+  |
+>>>>>>> 870839ab3d2447f8d56f153a395db626c8a5f42c
 </head>
 <body>
 

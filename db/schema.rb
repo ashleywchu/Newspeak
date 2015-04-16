@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150416145841) do
+ActiveRecord::Schema.define(version: 20150416185006) do
 
   create_table "article_tags", force: :cascade do |t|
     t.integer  "article_id"
@@ -62,10 +62,11 @@ ActiveRecord::Schema.define(version: 20150416145841) do
     t.integer  "article_rep"
     t.integer  "comment_rep"
     t.integer  "comment_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "uid"
     t.string   "provider"
+    t.string   "paypal_email"
   end
 
 end
