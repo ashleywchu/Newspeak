@@ -1,9 +1,10 @@
 class SessionsController < ApplicationController
 
   def create
-    user = User.find_by_provider_and_uid(auth[:provider], auth[:uid]) || User.create_with_omniauth(auth)
+    # binding.pry
+    user = User.find_by_provider_and_uid(auth[:provider], auth[:uid]) || user = User.create_with_omniauth(auth)
     session[:user_id] = user.id
-    redirect_to "/user/#{user.id}"
+    redirect_to "/"
   end
 
   def destroy
