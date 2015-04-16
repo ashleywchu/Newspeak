@@ -1,15 +1,18 @@
 class SessionsController < ApplicationController
+
   def create
-    data = request.env["omniauth.auth"]
-    # binding.pry
-    # test = RSpotify::User.new(request.env["omniauth.auth"])
-    user = User.from_omniauth(env["omniauth.auth"])
+    user = User.find_by_provider_and_uid(auth[:provider], auth[:uid]) || User.create_with_omniauth(auth)
     session[:user_id] = user.id
-    redirect_to user_path(user)
+    redirect_to "/user/#{user.id}"
   end
 
   def destroy
-    session[:user_id] = nil
-    redirect_to root_url
+    reset_session
+    redirect_to "/"
+  end
+
+  private
+  def auth
+    request.env["omniauth.auth"]
   end
 end
