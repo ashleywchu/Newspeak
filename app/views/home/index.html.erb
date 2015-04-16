@@ -1,3 +1,7 @@
-<p> Hey </p>
+<center>
+<h1> Newspeak </h1>
 
-<button><%= link_to "Login",  "/auth/google_oauth2" %></button>
+<% if current_user %>
+<button><%= link_to "Tip", "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=#{current_user.email}&lc=US&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted" %></button>
+<% end %>
+</center>

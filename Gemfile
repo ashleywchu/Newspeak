@@ -1,9 +1,15 @@
 source 'https://rubygems.org'
 
+
+
+#omniauth gems
 gem "omniauth-google-oauth2"
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem "omniauth-paypal"
+
+#hides api keys
 gem "figaro"
 
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
