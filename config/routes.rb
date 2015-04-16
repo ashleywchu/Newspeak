@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   #Home page route
 
-  root to: 'home#index'
+  root to: 'home#home'
 
   # Authentication
 
@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :users, except: [:update]
-
+  get 'newsfeed', to: 'users#newsfeed'
+  get 'newscolumn', to: 'users#newscolumn'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,10 +1,4 @@
 class UsersController < ApplicationController
-	
-	def new
-	end
-
-	def create
-	end
 
 	def index
 	end
@@ -12,7 +6,14 @@ class UsersController < ApplicationController
 	def edit
 	end
 
-	def show
+	def newsfeed
+		@user = User.find(params[:id])
+		render :newsfeed
+	end
+
+	def newscolumn
+		@user = User.find(params[:id])
+		render :newscolumn
 	end
 
 end
