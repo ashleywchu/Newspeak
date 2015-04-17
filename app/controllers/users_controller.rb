@@ -3,17 +3,12 @@ class UsersController < ApplicationController
 	def index
 	end
 
-	def edit
-	end
-
 	def newsfeed
-		@user = User.find(params[:id])
-		render :newsfeed
+		@user = current_user
 	end
 
 	def newscolumn
-		@user = User.find(params[:id])
-		render :newscolumn
+		@user = current_user
 	end
 
 end
