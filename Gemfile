@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 
 #omniauth gems
 gem "omniauth-google-oauth2"
-gem "omniauth-paypal"
 
 #hides api keys
 gem "figaro"
