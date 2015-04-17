@@ -10,7 +10,13 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
+  ## using restful resources instead? 
+  # get 'articles', to: 'articles#index'
+  # get 'articles/new', to: 'articles#create'
+
   resources :users, except: [:update]
+  resources :articles
+  resources :tags
 
 
   # The priority is based upon order of creation: first created -> highest priority.

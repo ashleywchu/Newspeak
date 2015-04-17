@@ -2,10 +2,13 @@ class ArticlesController < ApplicationController
 	def new
 	end
 
-	def create
+	def index
+		@articles = Article.all
 	end
 
-	def index
+	def create
+		@article = Article.new
+		@article.tags.build
 	end
 
 	def edit
