@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
-  get 'signout', to: 'sessions#destroy', as: 'signout'
+  get 'logut', to: 'sessions#destroy', as: 'signout'
 
   ## using restful resources instead? 
   # get 'articles', to: 'articles#index'
@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   resources :users, except: [:update]
   resources :articles
   resources :tags
-
+  
+  get 'newsfeed', to: 'users#newsfeed'
+  get 'newscolumn', to: 'users#newscolumn'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

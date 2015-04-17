@@ -1,18 +1,14 @@
 class UsersController < ApplicationController
-	
-	def new
-	end
-
-	def create
-	end
 
 	def index
 	end
 
-	def edit
+	def newsfeed
+		@user = current_user
 	end
 
-	def show
+	def newscolumn
+		@user = current_user
 	end
 
 end
