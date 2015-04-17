@@ -6,7 +6,14 @@ Rails.application.routes.draw do
 
   #User routes
 
+  ## using restful resources instead? 
+  # get 'articles', to: 'articles#index'
+  # get 'articles/new', to: 'articles#create'
+
   resources :users, except: [:update]
+  resources :articles
+  resources :tags
+  
   get 'newsfeed', to: 'users#newsfeed'
   get 'newscolumn', to: 'users#newscolumn'
 
