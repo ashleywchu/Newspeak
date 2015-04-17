@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<center>
 <head>
   <title>Newspeak</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -7,8 +8,8 @@
   <%= csrf_meta_tags %>
   <%= analytics_init if Rails.env.production? %>
   <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <% if current_user %>
   <%= link_to "Logout", "/logut" %>
   <% else %>
@@ -17,11 +18,14 @@
   |
   <%= link_to "Home", "/" %>
   |
-  <%= link_to "" %>
+  <%= link_to "My News Feed", "/newsfeed" %>
+  |
+  <%= link_to "My News Column", "/newscolumn" %>
 </head>
+</center>
 <body>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>
