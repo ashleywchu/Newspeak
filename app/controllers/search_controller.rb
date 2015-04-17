@@ -1,19 +1,11 @@
 class SearchController < ApplicationController
 
   def search
-  	@tag_results = []
-  	@author_results = []
   end
 
   def result
-  	@results = []
-  	@author_results = []
-  	Article.all.each do |article|
-  		article.tags.each do |tag|
-				@tag_results << article if tag.name.match(/#{params[:search][:name]}/)
-				@author_results << article.author if article.author.name.match(/#{params[:search][:name]}/)
-  		end
-  	end
+  	@tag_results = Search.tag_result(params)
+  	@author_results = Search.author_result(params)
   	render "search"
   end
 
