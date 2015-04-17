@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
   
   #Home page route
-
   root to: 'home#index'
 
   #User routes
-  
   get 'newsfeed', to: 'users#newsfeed'
   get 'newscolumn', to: 'users#newscolumn'
   resources :users, except: [:update]
