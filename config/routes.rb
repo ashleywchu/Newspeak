@@ -13,6 +13,10 @@ Rails.application.routes.draw do
 
   #Tags routes
   resources :tags
+
+  #Search routes
+  get "/search", to: 'search#search'
+  post "/result", to: 'search#result'
   
   # Authentication
   get 'auth/:provider/callback', to: 'sessions#create'
