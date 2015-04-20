@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   #User routes
-  get 'newsfeed', to: 'users#newsfeed'
-  get 'newscolumn', to: 'users#newscolumn'
+  get 'newsfeed/:id', to: 'users#newsfeed'
+  get 'newscolumn/:id', to: 'users#newscolumn'
   resources :users, except: [:update]
 
   #Articles routes
@@ -13,11 +13,15 @@ Rails.application.routes.draw do
 
   #Tags routes
   resources :tags
+
+  #Search routes
+  get "/search", to: 'search#search'
+  post "/result", to: 'search#result'
   
   # Authentication
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
-  get 'logut', to: 'sessions#destroy', as: 'signout'
+  get 'logout', to: 'sessions#destroy', as: 'signout'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

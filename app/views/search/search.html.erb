@@ -1,0 +1,30 @@
+<center>
+	
+	<h1>Search</h1>
+
+	<%= form_tag "/result", :method => 'post' do %>
+	<p>
+		<%= text_field_tag "search[name]"%>
+		<%= submit_tag "Search" %>
+	</p>
+	<% end %>
+
+	<h3>Authors</h3>
+
+	<% if @author_results %>
+		<% @author_results.each do |result| %>
+			<%= link_to "#{result.name}", "/newscolumn/#{result.id}" %>
+		<% end %>
+	<% end %>
+
+	<br>
+
+	<h3>Tags</h3>
+
+	<% if @tag_results %>
+		<% @tag_results.each do |result| %>
+			<%= link_to "#{result.title}", "/article/#{result.id}" %>
+		<% end %>
+	<% end %>
+
+</center>

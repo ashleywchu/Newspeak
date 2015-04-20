@@ -1,6 +1,12 @@
 class SearchController < ApplicationController
+
   def search
-    redirect_to artist_path(@artist)
+  end
+
+  def result
+  	@tag_results = Search.tag_result(params)
+  	@author_results = Search.author_result(params)
+  	render "search"
   end
 
   private
