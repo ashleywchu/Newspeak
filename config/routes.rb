@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   resources :users, except: [:update]
 
   #Articles routes
-  resources :articles
+  # resources :articles
+  resources :articles do 
+    resources :comments
+  end
 
   #Tags routes
   resources :tags
