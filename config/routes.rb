@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   #Tags routes
   resources :tags
 
+  #messages routes
+  get '/messages', to: 'messages#room'
   #Search routes
   get "/search", to: 'search#search'
   post "/result", to: 'search#result'

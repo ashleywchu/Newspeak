@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-
+gem 'private_pub'
 #omniauth gems
 gem "omniauth-google-oauth2"
 
