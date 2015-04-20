@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   #User routes
-  get 'newsfeed/:id', to: 'users#newsfeed'
-  get 'newscolumn/:id', to: 'users#newscolumn'
+  get 'newsfeed', to: 'users#newsfeed'
+  get 'newscolumn', to: 'users#newscolumn'
   resources :users, except: [:update]
 
   #Articles routes
