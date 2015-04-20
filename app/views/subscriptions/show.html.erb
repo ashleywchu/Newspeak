@@ -1,0 +1,16 @@
+<h1><%= @user.name %></h1>
+<p>
+  <%= image_tag(@user.image_url, size: "300x300") %><p>
+  <%= link_to "Spotify Page", @user.profile_url  %><br>
+  <% if @found_user_user %>
+    <%= form_for(@found_user_user, :html => { :method => :delete }) do |f| %>
+        <%= f.submit "Unfollow", :class => 'btn' %>
+    <% end %>
+  <% else %>
+    <%= form_for(@user_user) do |f| %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.hidden_field :user_id, :value => @user.id %>
+        <%= f.submit "Follow", :class => 'btn' %>
+    <% end %>
+  <% end %>
+</p>
