@@ -1,3 +1,13 @@
-<h1>Newspoken(?)</h1>
+<h1><%= @user.name %>'s News Column</h1>
 
-<% @user.articles %>
+<% @user.articles.each do |article| %>
+<%= article.name %>
+<% end %>
+
+<button><%= link_to "Subscribe", "subscribe" %></button>
+<br>
+<button><%= link_to "Unsubscribe", "unsubscribe" %></button>
+
+<br>
+
+<%= current_user.subscribers.first.reader.name%>

@@ -1,12 +1,13 @@
 class SubscriptionsController < ApplicationController
 
-def create
-    Subscription.create(params[:author_id])
-end
+	def create
+		Subscription.create(:reader_id => current_user.id, :author_id => params[:id])
+		redirect_to :back
+	end
 
-def destroy
-
-end
+	def destroy
+		Subscription.find_by_author_id(params[:id]).destroy
+	end
 
 
 end
