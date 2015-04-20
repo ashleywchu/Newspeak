@@ -12,7 +12,6 @@
 <% end %>
 
 <div class="field">
-<<<<<<< HEAD
   <%= f.label :title %><br>
   <%= f.text_field :title %><br>
   <%= f.label :abstract %><br>
@@ -32,28 +31,5 @@
   <br><%= f.submit "Report The Facts" %>
 </div>
 <br>
-=======
-  <%= f.label :name %><br>
-  <%= f.text_field :name %><br>
-  <%= f.label :content %><br>
-  <%= f.text_area :content %><br>
-  Tags:
-</div>
 
-<div class="field">
-<%= fields_for :tags, Tag.new do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name, :placeholder => "It works!" %>
-<% end %>
-</div>
-
-<div class="field">
-  <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %><br>
-</div>
-
-<div class="actions">
-  <%= f.submit %>
-</div>
-
->>>>>>> search
 <% end %>
