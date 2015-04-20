@@ -28,9 +28,8 @@ ActiveRecord::Schema.define(version: 20150416185006) do
     t.integer  "rep"
     t.integer  "author_id"
     t.integer  "comment_id"
-    t.integer  "article_tag_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -51,9 +50,8 @@ ActiveRecord::Schema.define(version: 20150416185006) do
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
-    t.integer  "article_tag_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
