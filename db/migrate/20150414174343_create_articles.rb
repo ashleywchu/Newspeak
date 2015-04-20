@@ -7,7 +7,7 @@ class CreateArticles < ActiveRecord::Migration
 			t.text :body
 			t.integer :rep
 			t.integer :author_id
-			t.integer :comment_id
+			# t.integer :comment_id
 			# t.integer :article_tag_id
 			t.timestamps null: false
 		end
