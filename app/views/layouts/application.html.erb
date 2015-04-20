@@ -11,16 +11,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <% if current_user %>
-  <%= link_to "Logout", "/logout" %>
-  <% else %>
-  <%= link_to "Login",  "/auth/google_oauth2" %>
+    <%= link_to "Logout", "/logout" %>
+    <% else %>
+    <%= link_to "Login",  "/auth/google_oauth2" %>
   <% end %>
-  |
-  <%= link_to "Home", "/" %>
-  |
-  <%= link_to "My News Feed", "/newsfeed" %>
-  |
-  <%= link_to "My News Column", "/newscolumn" %>
+  <% if current_user %>
+    |
+    <%= link_to "Home", "/" %>
+    |
+    <%= link_to "My News Feed", "/newsfeed" %>
+    |
+    <%= link_to "My News Column", "/newscolumn" %>
+    |
+    <%= link_to "Write", "/articles/new" %>
+  <% end %>
 </head>
 </center>
 <body>

@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 	end
 
 	def newscolumn
-		@author = User.find_by_id(params[:id])
 		@user = current_user
 	end
 
