@@ -9,7 +9,6 @@ class UsersController < ApplicationController
 
 	def newscolumn
 		@user = current_user
-		binding.pry
 	end
 
 end
