@@ -1,10 +1,11 @@
-Newspeak - Awesome Citizen Journalism
+Newspeak - Awesome Citizen Journalism<br><br>
 
-<%= @article.title %>
-<% binding.pry %>
-
-<%= @article.abstract %>
-<%= @article.sources %>
+<%= @article.title %><br>
+Written by: <%= @article.author.name %><br>
+Date: <%= @article.created_at.to_formatted_s(:m_d_y_time) %><br>
+Abstract: <%= @article.abstract %><br>
+Sources: <%= @article.sources %><br><br>
+<%= @article.body %><br><br>
 
 Comments:
 
@@ -12,8 +13,6 @@ Comments:
 	<li class="list-group-item list-inline">
 		<h5>Post a comment: </h5>
 		<%= form_for [@article, @comment] do |f|%>
-			<%= f.hidden_field :article_id, value: @article.id %>
-			<%= f.hidden_field :user_id, value: current_user.id %>
 			<%= f.label :body, "Comment" %><br>
 			<%= f.text_area :body, :class => "form-control", :rows => "3" %><br>
 			<%= f.submit "Create Comment", :class => "btn btn-default"%>
@@ -25,6 +24,6 @@ Comments:
 	<li class="list-group-item list-inline">
 		<p>Created at: <%= comment.created_at.to_formatted_s(:m_d_y_time) %></p>
 		<p><%= comment.body %></p>
-		<p>Written by: <%= comment.author%></p>
+		<p>Written by: <%= comment.user.name %></p>
 	</li>
 <% end %>
