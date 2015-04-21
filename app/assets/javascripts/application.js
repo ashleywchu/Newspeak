@@ -12,6 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require turbolinks
+//= require jquery.turbolinks
+//= require faye
+//= require comments
+//= require polling
 //= require bootstrap
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .
