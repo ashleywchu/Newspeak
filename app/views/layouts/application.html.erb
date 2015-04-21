@@ -13,9 +13,9 @@
     <%= link_to "Home", "/" %>
     |
     <% if current_user %>
-    <%= link_to "My News Feed", "/newsfeed" %>
+    <%= link_to "My News Feed", "/newsfeed/#{current_user.id}" %>
     |
-    <%= link_to "My News Column", "/newscolumn" %>
+    <%= link_to "My News Column", "/newscolumn/#{current_user.id}" %>
     |
     <%= link_to "Create New Article", "/articles/new" %>
     |
@@ -28,8 +28,8 @@
   </head>
 </center>
 <body>
-
+<center>
   <%= yield %>
-
+</center>
 </body>
 </html>

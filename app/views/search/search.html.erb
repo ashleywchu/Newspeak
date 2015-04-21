@@ -1,8 +1,6 @@
-<center>
-	
 	<h1>Search</h1>
 
-	<%= form_tag "/result", :method => 'post' do %>
+	<%= form_tag "result", :method => 'post' do %>
 	<p>
 		<%= text_field_tag "search[name]"%>
 		<%= submit_tag "Search" %>
@@ -13,7 +11,7 @@
 
 	<% if @author_results %>
 		<% @author_results.each do |result| %>
-			<%= link_to "#{result.name}", "/newscolumn/#{result.id}" %>
+			<%= link_to "#{result.name}", "newscolumn/#{result.id}" %>
 		<% end %>
 	<% end %>
 
@@ -23,8 +21,6 @@
 
 	<% if @tag_results %>
 		<% @tag_results.each do |result| %>
-			<%= link_to "#{result.title}", "/article/#{result.id}" %>
+			<%= link_to "#{result.title}", "article/#{result.id}" %>
 		<% end %>
 	<% end %>
-
-</center>

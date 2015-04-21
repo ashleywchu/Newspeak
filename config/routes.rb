@@ -4,9 +4,13 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   #User routes
-  get 'newsfeed', to: 'users#newsfeed'
-  get 'newscolumn', to: 'users#newscolumn'
+  get 'newsfeed/:id', to: 'users#newsfeed'
+  get 'newscolumn/:id', to: 'users#newscolumn'
   resources :users, except: [:update]
+
+  #Subscription route
+  get 'subscribe', to: 'subscriptions#create'
+  get 'unsubscribe', to: 'subscriptions#destroy'
 
   #Articles routes
   # resources :articles
@@ -18,8 +22,8 @@ Rails.application.routes.draw do
   resources :tags
 
   #Search routes
-  get "/search", to: 'search#search'
-  post "/result", to: 'search#result'
+  get "search", to: 'search#search'
+  post "result", to: 'search#result'
   
   # Authentication
   get 'auth/:provider/callback', to: 'sessions#create'
