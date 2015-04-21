@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-
-
 #omniauth gems
 gem "omniauth-google-oauth2"
 
@@ -59,6 +57,7 @@ group :test, :development do
   gem 'pry'
   gem 'guard-rspec', require: false
   gem 'thin'
+  gem 'hirb' # easy to read console output
 end
 
 group :production do

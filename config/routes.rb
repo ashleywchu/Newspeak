@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   get 'unsubscribe', to: 'subscriptions#destroy'
 
   #Articles routes
-  resources :articles
+  # resources :articles
+  resources :articles do 
+    resources :comments
+  end
 
   #Tags routes
   resources :tags
