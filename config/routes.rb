@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   #Tags routes
   resources :tags
 
+  #comments
+  resources :comments, only: [:new, :create]
+  get '/comments', to: 'comments#new'
   #messages routes
   get '/messages', to: 'messages#room'
   #Search routes
