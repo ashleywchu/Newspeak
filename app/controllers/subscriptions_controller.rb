@@ -7,6 +7,7 @@ class SubscriptionsController < ApplicationController
 
 	def destroy
 		Subscription.find_by_author_id(params[:id]).destroy
+		redirect_to :back
 	end
 
 
