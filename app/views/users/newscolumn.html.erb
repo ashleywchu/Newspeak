@@ -9,7 +9,7 @@
 
 	<!-- Needs to link to the article show page -->
 	<div class="box">
-	<br>
+		<br>
 		<button>
 			<h5>
 				+
@@ -25,13 +25,12 @@
 		Abstract: <%= article.abstract %><p>
 	</div>
 	<% end %>
-
 	<br>
 
-	Subscribers: <h1><%= current_user.subscribers.count%></h1>
+	Subscribers: <h1><%= @user.subscribers.count%></h1>
 
-	<br>
-	<button><%= link_to "Subscribe", "subscribe" %></button>
-	<br>
-	<button><%= link_to "Unsubscribe", "unsubscribe" %></button>
-	<br>
+	<% if Subscription.find_by_author_id_and_reader_id(@user.id, current_user.id) %>
+	<%= render 'unsubscribe' %> 
+	<% else %> 
+	<%= render 'subscribe' %>
+	<% end %>

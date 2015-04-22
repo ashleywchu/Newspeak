@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 	end
 
 	def newscolumn
-		@user = User.find_by_id(params[:id])
+		@user = User.find_by_id(params[:id]) || User.first
 	end
 
 end
