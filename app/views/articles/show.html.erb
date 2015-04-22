@@ -26,7 +26,7 @@ Comments:
 <li class="list-group-item list-inline">
   <p>Created at: <%= comment.created_at.to_formatted_s(:m_d_y_time) %></p>
   <p><%= comment.body %></p>
-  <p>Written by: <%= comment.author%></p>
+  <p>Written by: <%= comment.user.name%></p>
 </li>
 <% end %>
 
