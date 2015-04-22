@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#nested
+gem 'closure_tree'
+
 #omniauth gems
 gem "omniauth-google-oauth2"
 
