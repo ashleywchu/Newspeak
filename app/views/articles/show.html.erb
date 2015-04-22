@@ -7,6 +7,14 @@ Abstract: <%= @article.abstract %><br>
 Sources: <%= @article.sources %><br><br>
 <%= @article.body %><br><br>
 
+
+<!-- Tip doesn't work because we haven't allowed users to add their PayPal email. -->
+
+<% if current_user %>
+<button><%= link_to "Tip", "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=#{@article.author.paypal_email}&lc=US&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted" %></button>
+<% end %>
+<br>
+
 Comments:
 
 <ul class="list-group">
@@ -26,7 +34,7 @@ Comments:
 <li class="list-group-item list-inline">
   <p>Created at: <%= comment.created_at.to_formatted_s(:m_d_y_time) %></p>
   <p><%= comment.body %></p>
-  <p>Written by: <%= comment.author%></p>
+  <p>Written by: <%= comment.user.name %></p>
 </li>
 <% end %>
 
