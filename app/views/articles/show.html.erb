@@ -12,18 +12,22 @@ Comments:
 <ul class="list-group">
 	<li class="list-group-item list-inline">
 		<h5>Post a comment: </h5>
-		<%= form_for [@article, @comment] do |f|%>
-			<%= f.label :body, "Comment" %><br>
-			<%= f.text_area :body, :class => "form-control", :rows => "3" %><br>
-			<%= f.submit "Create Comment", :class => "btn btn-default"%>
-		<% end %>
-	</li>
+    <%= form_for [@article, @comment] do |f|%>
+    <%= f.hidden_field :article_id, value: @article.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.label :body, "Comment" %><br>
+    <%= f.text_area :body, :class => "form-control", :rows => "3" %><br>
+    <%= f.submit "Create Comment", :class => "btn btn-default"%>
+    <% end %>
+  </li>
 </ul>
 
 <% @article.comments.each do |comment| %>
-	<li class="list-group-item list-inline">
-		<p>Created at: <%= comment.created_at.to_formatted_s(:m_d_y_time) %></p>
-		<p><%= comment.body %></p>
-		<p>Written by: <%= comment.user.name %></p>
-	</li>
+<li class="list-group-item list-inline">
+  <p>Created at: <%= comment.created_at.to_formatted_s(:m_d_y_time) %></p>
+  <p><%= comment.body %></p>
+  <p>Written by: <%= comment.author%></p>
+</li>
 <% end %>
+
+
