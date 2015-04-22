@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   #Articles routes
   # resources :articles
+  get "article/:id/edit", to: "article#edit"
+  get "article/:id/delete", to: "article#destroy"
   resources :articles do 
     resources :comments
   end

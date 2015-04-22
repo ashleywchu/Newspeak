@@ -2,23 +2,36 @@
 
 <% @user.articles.each do |article| %>
 
-<!-- Needs to link to the article show page -->
+<style>
+	.box {
+		border: 1px solid grey ;}
+	</style>
 
-<button>
-Title: <%= article.title %>
-<br>
-Abstract: <%= article.abstract %>
-<br>
-Rep: <%= article.rep %>
-</button>
-<% end %>
+	<!-- Needs to link to the article show page -->
+	<div class="box">
+	<br>
+		<button>
+			<h5>
+				+
+			</h5>
+		</button>
+		<button>
+			<h5>
+				-
+			</h5>
+		</button> &nbsp;&nbsp;
+		Rep: <%= article.rep ||= 0 %> &nbsp;&nbsp;&nbsp;&nbsp;
+		Title: <%= article.title %> &nbsp;&nbsp;&nbsp;&nbsp;
+		Abstract: <%= article.abstract %><p>
+	</div>
+	<% end %>
 
-<br>
+	<br>
 
-Subscribers: <h1><%= current_user.subscribers.count%></h1>
+	Subscribers: <h1><%= current_user.subscribers.count%></h1>
 
-<br>
-<button><%= link_to "Subscribe", "subscribe" %></button>
-<br>
-<button><%= link_to "Unsubscribe", "unsubscribe" %></button>
-<br>
+	<br>
+	<button><%= link_to "Subscribe", "subscribe" %></button>
+	<br>
+	<button><%= link_to "Unsubscribe", "unsubscribe" %></button>
+	<br>
