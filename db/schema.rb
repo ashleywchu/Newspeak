@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20150423140653) do
     t.integer  "rep"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "parent_id"
   end
 
   create_table "rs_evaluations", force: :cascade do |t|
