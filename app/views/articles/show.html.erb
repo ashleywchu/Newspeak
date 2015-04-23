@@ -7,6 +7,8 @@ Abstract: <%= @article.abstract %><br>
 Sources: <%= @article.sources %><br><br>
 <%= @article.body %><br><br>
 
+<a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-hashtags="Newspeak" data-dnt="true">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 <!-- Tip doesn't work because we haven't allowed users to add their PayPal email. -->
 
@@ -14,6 +16,7 @@ Sources: <%= @article.sources %><br><br>
 <button><%= link_to "Tip", "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=#{@article.author.paypal_email}&lc=US&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted" %></button>
 <% end %>
 <br>
+
 
 Comments:
 
@@ -25,7 +28,7 @@ Comments:
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.label :body, "Comment" %><br>
     <%= f.text_area :body, :class => "form-control", :rows => "3" %><br>
-    <%= f.submit "Create Comment", :class => "btn btn-default"%>
+    <%= f.submit "Create Comment", :class => "btn btn-default" client.update("Latest post: Newspeak: Get the Facts")%>
     <% end %>
   </li>
 </ul>
