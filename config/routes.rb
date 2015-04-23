@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  #conversations
+  resources :conversations, only: [:index, :show, :destroy]
+
   
   #Tags routes
   resources :tags
