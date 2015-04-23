@@ -1,0 +1,6 @@
+<% @articles.each do |article| %>
+	<ul>
+	<%= article.title %><br>
+	<%= raw article.tag_list.map {|tag| link_to tag, tag_path(tag)}.join(', ') %>
+	</ul>
+<% end %>

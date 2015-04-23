@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   end
 
   #Tags routes
+  get 'tags/:tag', to: 'tags#show', as: :tag
   resources :tags
 
   #Search routes

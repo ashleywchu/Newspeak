@@ -5,8 +5,8 @@ Written by: <%= @article.author.name %><br>
 Date: <%= @article.created_at.to_formatted_s(:m_d_y_time) %><br>
 Abstract: <%= @article.abstract %><br>
 Sources: <%= @article.sources %><br><br>
-Body: <%= @article.body %><br><br>
-Tags: <%= @article.tag_list %>
+Body: <%= @article.body %><br><br>Third
+Tags: <%= raw @article.tag_list.map {|tag| link_to tag, tag_path(tag)}.join(', ') %><br><br>
 
 <!-- Tip doesn't work because we haven't allowed users to add their PayPal email. -->
 

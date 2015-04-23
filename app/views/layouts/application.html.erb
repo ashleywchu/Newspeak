@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 <html>
-<center>
-  <head>
-    <title>Newspeak</title>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-    <%= csrf_meta_tags %>
-    <%= analytics_init if Rails.env.production? %>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= link_to "Home", "/" %>
-    |
-    <% if current_user %>
-    <%= link_to "My News Feed", "/newsfeed/#{current_user.id}" %>
-    |
-    <%= link_to "My News Column", "/newscolumn/#{current_user.id}" %>
-    |
-    <%= link_to "Create New Article", "/articles/new" %>
-    |
-    <% end %>
-    <% if current_user %>
-    <%= link_to "Logout", "/logout" %>
-    <% else %>
-    <%= link_to "Login",  "/auth/google_oauth2" %>
-    <% end %>
-  </head>
-</center>
-<body>
-<center>
-  <%= yield %>
-</center>
-</body>
+    <center>
+      <head>
+        <title>Newspeak</title>
+        <%= stylesheet_link_tag    'application', media: 'all' %>
+        <%= javascript_include_tag 'application' %>
+        <%= csrf_meta_tags %>
+        <%= analytics_init if Rails.env.production? %>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <%= link_to "Home", "/" %>
+        |
+        <% if current_user %>
+            <%= link_to "My News Feed", "/newsfeed/#{current_user.id}" %>
+            |
+            <%= link_to "My News Column", "/newscolumn/#{current_user.id}" %>
+            |
+            <%= link_to "Create New Article", "/articles/new" %>
+            |
+            <%= link_to "Logout", "/logout" %>
+        <% else %>
+            <%= link_to "Login",  "/auth/google_oauth2" %>
+        <% end %>
+      </head>
+    </center>
+    <body>
+
+      <%= yield %>
+
+    </body>
 </html>
