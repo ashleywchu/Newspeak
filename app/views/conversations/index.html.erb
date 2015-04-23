@@ -3,6 +3,7 @@
 <div class="row">
   <div class="col-sm-3">
     <ul class="nav nav-pills nav-stacked">
+    <%= link_to 'Compose', new_message_path %>
       <%= mailbox_section 'inbox', @box %>
       <%= mailbox_section 'sent', @box %>
       <%= mailbox_section 'trash', @box %>
@@ -17,3 +18,4 @@
     <%= will_paginate %>
   </div>
 </div>
+
