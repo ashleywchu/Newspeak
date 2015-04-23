@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 #mailboxer
 gem 'mailboxer'
+gem 'bootstrap-will_paginate'
+gem 'will_paginate'
 
 #reputation system
 gem 'activerecord-reputation-system', require: 'reputation_system'
