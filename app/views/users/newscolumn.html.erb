@@ -12,20 +12,18 @@
 		<br>
 		<button>
 			<h5>
-				+
+				<%= link_to "+", vote_article_path(article, type: "up"), method: "post" %>
 			</h5>
 		</button>
 		<button>
 			<h5>
-				-
+			<%= link_to "-", vote_article_path(article, type: "down"), method: "post" %>
 			</h5>
 		</button> &nbsp;&nbsp;
-		Rep: <%= article.rep ||= 0 %> &nbsp;&nbsp;&nbsp;&nbsp;
+		Seed Reputation: <%= article.rep %>
+		Reputation: <%= article.reputation_for(:votes).to_i ||= 0 %> &nbsp;&nbsp;&nbsp;&nbsp;
 		Title: <%= article.title %> &nbsp;&nbsp;&nbsp;&nbsp;
 		Abstract: <%= article.abstract %><p>
-		<%= pluralize article.reputation_for(:votes).to_i, "vote" %>
-		<%= link_to "up", vote_article_path(article, type: "up"), method: "post" %>
-		<%= link_to "down", vote_article_path(article, type: "down"), method: "post" %>
 	</div>
 	<% end %>
 	<br>
