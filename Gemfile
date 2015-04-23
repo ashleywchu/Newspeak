@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'mailboxer'
 gem 'bootstrap-will_paginate'
 gem 'will_paginate'
+# gem 'chosen-rails'
 
 #reputation system
 gem 'activerecord-reputation-system', require: 'reputation_system'

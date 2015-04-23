@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
     has_reputation :votes, source: {reputation: :votes, of: :articles}, aggregated_by: :sum
     acts_as_messageable
 
+    def mailboxer_email(object)
+        email
+    end
+
     def self.create_with_omniauth(auth)
         User.create(
         :name => auth.info.name,
