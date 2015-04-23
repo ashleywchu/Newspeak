@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#mailboxer
+gem 'mailboxer'
+
 #reputation system
 gem 'activerecord-reputation-system', require: 'reputation_system'
 
