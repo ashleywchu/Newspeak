@@ -3,7 +3,7 @@ class Search
 	def self.author_result(params)
   	@authors = []
   	Article.all.each do |article|
-				@authors << article.author if article.author.name.match(/#{params[:search][:name]}/i)
+				@authors << article.author if article.author.name.match(/#{params[:search][:name]}/i) && !@authors.include?(article.author)
   	end
   	@authors
   end

@@ -8,12 +8,11 @@ Rails.application.routes.draw do
   get 'newscolumn/:id', to: 'users#newscolumn'
   resources :users, except: [:update]
 
-  #Subscription route
-  get 'subscribe', to: 'subscriptions#create'
-  get 'unsubscribe', to: 'subscriptions#destroy'
+  #Subscription routes
+  post 'subscribe', to: 'subscriptions#create'
+  post 'unsubscribe', to: 'subscriptions#destroy'
 
   #Articles routes
-  # resources :articles
   resources :articles do 
     resources :comments
   end
@@ -25,7 +24,7 @@ Rails.application.routes.draw do
   get "search", to: 'search#search'
   post "result", to: 'search#result'
   
-  # Authentication
+  #Authentication routes
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'logout', to: 'sessions#destroy', as: 'signout'
