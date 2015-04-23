@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#reputation system
+gem 'activerecord-reputation-system', require: 'reputation_system'
+
 #omniauth gems
 gem "omniauth-google-oauth2"
 

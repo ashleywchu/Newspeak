@@ -4,4 +4,5 @@ class Article < ActiveRecord::Base
 	has_many :article_tags
 	has_many :tags, through: :article_tags
   accepts_nested_attributes_for :tags
+  has_reputation :votes, source: :user, aggregated_by: :sum
 end

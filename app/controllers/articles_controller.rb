@@ -16,6 +16,10 @@ class ArticlesController < ApplicationController
 		end
 	end
 
+	def index
+		@articles = Article.find_with_reputation(:votes, :all, order: "votes desc") 
+	end
+
 	def edit
 		@article = Article.find(params[:id])
 	end
@@ -45,6 +49,13 @@ class ArticlesController < ApplicationController
 			format.html { redirect_to article_url }
 			format.json { head :no_content }
 		end
+	end
+
+	def vote
+		value = params[:type] == "up" ? 1: -1
+		@article = Article.find(params[:id])
+		@article.add_or_update_evaluation(:votes, value, current_user)
+		redirect_to :back
 	end
 
 	private

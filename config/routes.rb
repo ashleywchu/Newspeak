@@ -13,10 +13,12 @@ Rails.application.routes.draw do
   post 'unsubscribe', to: 'subscriptions#destroy'
 
   #Articles routes
-  resources :articles do 
+  resources :articles do
+    member { post :vote} 
     resources :comments
   end
 
+  
   #Tags routes
   resources :tags
 
