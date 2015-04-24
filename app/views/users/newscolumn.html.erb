@@ -10,16 +10,12 @@
 	<!-- Needs to link to the article show page -->
 	<div class="box">
 		<br>
-		<button>
 			<h5>
 				<%= link_to "+", vote_article_path(article, type: "up"), method: "post" %>
 			</h5>
-		</button>
-		<button>
 			<h5>
 			<%= link_to "-", vote_article_path(article, type: "down"), method: "post" %>
 			</h5>
-		</button> &nbsp;&nbsp;
 		Seed Reputation: <%= article.rep %>
 		Reputation: <%= article.reputation_for(:votes).to_i ||= 0 %> &nbsp;&nbsp;&nbsp;&nbsp;
 		Title: <%= article.title %> &nbsp;&nbsp;&nbsp;&nbsp;
