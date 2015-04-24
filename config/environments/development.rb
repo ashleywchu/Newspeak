@@ -1,4 +1,5 @@
 Rails.application.configure do
+  config.action_mailer.perform_deliveries = true
   config.assets.raise_production_errors = true
   # Settings specified here will take precedence over those in config/application.rb.
 config.action_mailer.default_url_options = {:host => "localhost:3000"}
@@ -6,6 +7,16 @@ config.action_mailer.default_url_options = {:host => "localhost:3000"}
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
+
+  #Configures if you application uses or not email sending for Notifications and Messages
+  config.uses_emails = true
+
+  #Configures the default from for emails sent for Messages and Notifications
+  config.default_from = "no-reply@mailboxer.com"
+
+  #Configures the methods needed by mailboxer
+  config.email_method = :mailboxer_email
+  config.name_method = :name
 
   # Do not eager load code on boot.
   config.eager_load = false
@@ -39,4 +50,13 @@ config.action_mailer.default_url_options = {:host => "localhost:3000"}
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'example.com',
+  user_name:            '<username>',
+  password:             '<password>',
+  authentication:       'plain',
+  enable_starttls_auto: true  }
 end
