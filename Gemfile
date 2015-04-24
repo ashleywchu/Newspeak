@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+#nested comments
+gem 'ancestry'
+
+
 #mailboxer
 gem 'mailboxer'
 gem 'bootstrap-will_paginate'

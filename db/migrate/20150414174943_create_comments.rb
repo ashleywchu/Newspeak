@@ -6,6 +6,10 @@ class CreateComments < ActiveRecord::Migration
 			t.integer :article_id
 			t.integer :rep
 			t.timestamps null: false
+      t.integer :commentable_id
+      t.string :commentable_type
+      t.string :ancestry
 		end
+    add_index :comments, :ancestry
 	end
 end
