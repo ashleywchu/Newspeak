@@ -19,4 +19,6 @@ Mailboxer.setup do |config|
   config.subject_max_length = 255
   config.body_max_length = 32000
   # config.action_mailer.default_url_options = {:host => "localhost:3000"}
+
+  
 end
