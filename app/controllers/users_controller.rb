@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 	end
 
 	def newsfeed
-		binding.pry
 		if params[:id].to_i != current_user.id
 			redirect_to "newsfeed/#{current_user.id}" 
 		else
