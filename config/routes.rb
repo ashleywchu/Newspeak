@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'tags#show', as: :tag
   resources :tags
 
+  #Tagging routes
+  resources :taggings
+
   #Search routes
   get "search", to: 'search#search'
   post "result", to: 'search#result'
