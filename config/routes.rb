@@ -24,6 +24,9 @@ Rails.application.routes.draw do
       post :reply
       post :restore
     end
+    collection do
+      delete :empty_trash
+    end
   end
 
   #messages
