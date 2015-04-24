@@ -41,7 +41,13 @@ class ConversationsController < ApplicationController
   end
   flash[:success] = 'Your trash was cleaned!'
   redirect_to conversations_path
-end
+  end
+
+  def mark_as_read
+  @conversation.mark_as_read(current_user)
+  flash[:success] = 'The conversation was marked as read.'
+  redirect_to conversations_path
+  end
 
   private
 
