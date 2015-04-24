@@ -52,9 +52,9 @@
 	end
 
 	def vote
-		value = params[:type] == "up" ? 1: -1
+		params[:type] == "up" ? params[:value] = params[:value].to_i + 1 : params[:value] = params[:value].to_i - 1
 		@article = Article.find(params[:id])
-		@article.add_or_update_evaluation(:votes, value, current_user)
+		@article.add_or_update_evaluation(:votes, params[:value], current_user)
 		redirect_to :back
 	end
 
