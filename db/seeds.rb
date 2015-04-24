@@ -18,7 +18,7 @@ def make_users
 	User.create(:name => "Shawn", :email => "shawn@awesome.com", :article_rep => 1000, :comment_rep => 500, :uid => "104598241683157696733", :provider => "google_oauth2")
 	User.create(:name => "Keith", :email => "keith@awesome.com", :article_rep => 9010, :comment_rep => 400, :uid => "103062603984495647486", :provider => "google_oauth2")
 	User.create(:name => "Ashley", :email => "ashley@awesome.com", :article_rep => 800, :comment_rep => 300, :uid => "113638395038993757289", :provider => "google_oauth2")
-	User.create(:name => "Sanj", :email => "sanj@awesome.com", :article_rep => 99999, :comment_rep => 99999, :uid => "104583935941508057228", :provider => "google_oauth2")
+	User.create(:name => "Sanj", :email => "sjchakrav@gmail.com", :article_rep => 99999, :comment_rep => 99999, :uid => "104583935941508057228", :provider => "google_oauth2")
 	User.create(:name => "Demo", :email => "future_employer@awesome.com", :article_rep => 940, :comment_rep => 520)
 end
 

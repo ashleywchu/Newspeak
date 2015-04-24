@@ -16,7 +16,6 @@
 			<h5>
 			<%= link_to "-", vote_article_path(article, type: "down"), method: "post" %>
 			</h5>
-		Seed Reputation: <%= article.rep %>
 		Reputation: <%= article.reputation_for(:votes).to_i ||= 0 %> &nbsp;&nbsp;&nbsp;&nbsp;
 		Title: <%= article.title %> &nbsp;&nbsp;&nbsp;&nbsp;
 		Abstract: <%= article.abstract %><p>
