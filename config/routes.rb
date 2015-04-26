@@ -19,10 +19,8 @@ Rails.application.routes.draw do
 
   #Tags routes
   get 'tags/:tag', to: 'tags#show', as: :tag
-  resources :tags
+  resources :tags, except: :show
 
-  #Tagging routes
-  resources :taggings
 
   #Search routes
   get "search", to: 'search#search'

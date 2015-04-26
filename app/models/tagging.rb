@@ -1,4 +1,4 @@
 class Tagging < ActiveRecord::Base
-	belongs_to :taggable, class_name: "Article"
+	belongs_to :article, foreign_key: :taggable_id
 	belongs_to :tag
 end
