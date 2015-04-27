@@ -1,1 +1,25 @@
 <h1> Newspeak </h1>
+
+<h4>Real Unbiased News From Citizens Like You</h4>
+
+
+<!-- Just wanted to put something on the page for the demo... -->
+
+<style>
+	.box {
+		border: 1px solid grey ;}
+	</style>
+
+	<% Article.all.sample(5).each do |article| %>
+	<div class="box">
+		<h5>
+			<%= link_to "+", vote_article_path(article, {type: "up", value: article.reputation_for(:votes)}), method: "post" %>
+		</h5>
+		<h5>
+			<%= link_to "-", vote_article_path(article, {type: "down", value: article.reputation_for(:votes)}), method: "post" %>
+		</h5>
+		Reputation: <%= article.reputation_for(:votes).to_i ||= 0 %> &nbsp;&nbsp;&nbsp;&nbsp;
+		Title: <%= article.title %> &nbsp;&nbsp;&nbsp;&nbsp;
+		Abstract: <%= article.abstract %>
+	</div>
+	<% end %>
