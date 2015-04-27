@@ -18,4 +18,12 @@ class Search
   	@tags
   end
 
+  def self.title_result(params)
+    @titles = []
+    Article.all.each do |article|
+      @titles << article if article.title.match(/#{params[:search][:name]}/i)
+    end
+    @titles
+  end
+
 end
