@@ -5,7 +5,6 @@ class TagsController < ApplicationController
 	end
 
 	def index
-		binding.pry
 		@tags = Tag.all
 	end
 
