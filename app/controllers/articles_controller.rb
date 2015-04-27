@@ -1,8 +1,7 @@
-	class ArticlesController < ApplicationController
-	
+class ArticlesController < ApplicationController
 	def new
 		@article = Article.new
-		@article.tags.build
+		# @article.tags.build
 	end
 
 	def create
@@ -52,15 +51,15 @@
 	end
 
 	def vote
-		value = params[:type] == "up" ? 1: -1
+		params[:type] == "up" ? params[:value] = params[:value].to_i + 1 : params[:value] = params[:value].to_i - 1
 		@article = Article.find(params[:id])
-		@article.add_or_update_evaluation(:votes, value, current_user)
+		@article.add_or_update_evaluation(:votes, params[:value], current_user)
 		redirect_to :back
 	end
 
 	private
 	def article_params
-		params.require(:article).permit(:author_id, :title, :abstract, :sources, :body, :tags_attributes => [:name], :tag_ids => []).merge(:author_id => current_user.id)
+		params.require(:article).permit(:author_id, :title, :abstract, :sources, :body, :tag_list).merge(:author_id => current_user.id)
 	end
 
 end

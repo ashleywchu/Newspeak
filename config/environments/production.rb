@@ -3,8 +3,19 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
+  config.action_mailer.perform_deliveries = true
   config.cache_classes = true
+  config.action_mailer.default_url_options = {:host => "localhost:3000"}
 
+  #Configures if you application uses or not email sending for Notifications and Messages
+  config.uses_emails = true
+
+  #Configures the default from for emails sent for Messages and Notifications
+  config.default_from = "no-reply@mailboxer.com"
+
+  #Configures the methods needed by mailboxer
+  config.email_method = :mailboxer_email
+  config.name_method = :name
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
@@ -77,4 +88,13 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'example.com',
+  user_name:            '<username>',
+  password:             '<password>',
+  authentication:       'plain',
+  enable_starttls_auto: true  }
 end

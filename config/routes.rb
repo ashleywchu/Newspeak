@@ -23,6 +23,10 @@ Rails.application.routes.draw do
     member do
       post :reply
       post :restore
+      post :mark_as_read
+    end
+    collection do
+      delete :empty_trash
     end
   end
 
@@ -31,7 +35,10 @@ Rails.application.routes.draw do
 
   
   #Tags routes
-  resources :tags
+  get 'tags', to: 'tags#index'
+  get 'tags/:tag', to: 'tags#show', as: :tag
+  resources :tags, except: :show
+
 
   #Search routes
   get "search", to: 'search#search'
