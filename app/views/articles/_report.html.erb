@@ -20,18 +20,8 @@
   <%= f.text_area :sources %><br>
   <%= f.label :body %><br>
   <%= f.text_area :body %><br>
-</div>
-
-<div class="field">
-  <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %><br> 
-</div>
-
-<div class="field">
-Add a new tag:<br>
-<%= f.fields_for :tags do |tag_form| %>
-  <%= tag_form.label :name, "Tag" %><br>
-  <%= tag_form.text_field :name %>
-  <% end %>
+  <%= f.label :tag_list, "Tags (separate by commas)" %><br>
+  <%= f.text_area :tag_list %><br>
 </div>
 
 <div class="actions">

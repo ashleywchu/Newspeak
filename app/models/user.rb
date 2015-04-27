@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 	has_many :articles, :foreign_key => :author_id	
     has_reputation :votes, source: {reputation: :votes, of: :articles}, aggregated_by: :sum
     acts_as_messageable
+    acts_as_tagger
 
     def mailboxer_email(object)
         email

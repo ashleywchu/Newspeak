@@ -1,8 +1,7 @@
-	class ArticlesController < ApplicationController
-	
+class ArticlesController < ApplicationController
 	def new
 		@article = Article.new
-		@article.tags.build
+		# @article.tags.build
 	end
 
 	def create
@@ -60,7 +59,7 @@
 
 	private
 	def article_params
-		params.require(:article).permit(:author_id, :title, :abstract, :sources, :body, :tags_attributes => [:name], :tag_ids => []).merge(:author_id => current_user.id)
+		params.require(:article).permit(:author_id, :title, :abstract, :sources, :body, :tag_list).merge(:author_id => current_user.id)
 	end
 
 end
