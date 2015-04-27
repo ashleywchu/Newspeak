@@ -6,6 +6,7 @@ class SearchController < ApplicationController
   def result
   	@tag_results = Search.tag_result(params)
   	@author_results = Search.author_result(params)
+    @title_results = Search.title_result(params)
   	render "search"
   end
 

@@ -7,20 +7,30 @@
 	</p>
 	<% end %>
 
-	<h3>Authors</h3>
+	<h3>Title Matches</h3>
+
+	<% if @title_results %>
+	<% @title_results.each do |result| %>
+	<%= link_to "#{result.title}", "article/#{result.id}" %>
+	<% end %>
+	<% end %>
+
+	<h3>Author Matches</h3>
 
 	<% if @author_results %>
-		<% @author_results.each do |result| %>
-			<%= link_to "#{result.name}", "newscolumn/#{result.id}" %>
-		<% end %>
+	<% @author_results.each do |result| %>
+	<%= link_to "#{result.name}", "newscolumn/#{result.id}" %>
+	<% end %>
 	<% end %>
 
 	<br>
 
-	<h3>Tags</h3>
+	<h3>Tag Matches</h3>
 
 	<% if @tag_results %>
-		<% @tag_results.each do |result| %>
-			<%= link_to "#{result.title}", "article/#{result.id}" %>
-		<% end %>
+	<% @tag_results.each do |result| %>
+	<%= link_to "#{result.title}", "article/#{result.id}" %>
 	<% end %>
+	<% end %>
+
+	<br>
