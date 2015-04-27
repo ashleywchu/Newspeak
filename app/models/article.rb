@@ -6,4 +6,9 @@ class Article < ActiveRecord::Base
 	# has_many :tags, through: :article_tags
   # accepts_nested_attributes_for :tags
   acts_as_taggable
+
+  def self.location_search(search)
+    search(search).limit(5).pluck(:location)
+  end
+
 end

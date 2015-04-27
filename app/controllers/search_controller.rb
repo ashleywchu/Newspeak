@@ -14,4 +14,9 @@ class SearchController < ApplicationController
   def search_params
     params.require(:search).permit(:name)
   end
+
+  def autocomplete
+    render json: Article.location_search(params[:term])
+ end
+
 end
