@@ -39,12 +39,11 @@ Rails.application.routes.draw do
   get 'tags', to: 'tags#index'
   get 'tags/:tag', to: 'tags#show', as: :tag
   resources :tags, except: :show
-
-
+  
   #Search routes
   get "search", to: 'search#search'
   post "result", to: 'search#result'
-  get '/search_suggestions', to: 'search#autocomplete'
+  get 'search_suggestions', to: 'search#autocomplete'
   
   #Authentication routes
   get 'auth/:provider/callback', to: 'sessions#create'

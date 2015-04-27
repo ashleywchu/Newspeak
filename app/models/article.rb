@@ -7,8 +7,12 @@ class Article < ActiveRecord::Base
   # accepts_nested_attributes_for :tags
   acts_as_taggable
 
-  def self.location_search(search)
-    search(search).limit(5).pluck(:location)
+  def self.search(search)
+    where('title LIKE ?', "%#{search}%")
+  end
+  
+  def self.title_search(search)
+    search(search).limit(5).pluck(:title)
   end
 
 end
