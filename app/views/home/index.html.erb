@@ -2,3 +2,26 @@
 
 
 <h4>Real Unbiased News From Citizens Like You</h4>
+
+<style>
+	.box {
+		border: 1px solid grey ;}
+	</style>
+
+	<% Home.most_popular.each do |article| %>
+	<div class="box">
+		<br>
+		<br>
+		<h5>
+			<%= link_to "+", vote_article_path(article, {type: "up", value: article.reputation_for(:votes)}), method: "post" %>
+		</h5>
+		<h5>
+			<%= link_to "-", vote_article_path(article, {type: "down", value: article.reputation_for(:votes)}), method: "post" %>
+		</h5>
+		Rep: <%= article.reputation_for(:votes).to_i ||= 0 %> &nbsp;&nbsp;&nbsp;&nbsp;
+		Title: <%= article.title %> &nbsp;&nbsp;&nbsp;&nbsp;
+		Abstract: <%= article.abstract %>
+		<br>
+		<br>
+	</div>
+	<% end %>
