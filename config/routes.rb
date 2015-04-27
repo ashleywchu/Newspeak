@@ -35,7 +35,10 @@ Rails.application.routes.draw do
 
   
   #Tags routes
-  resources :tags
+  get 'tags', to: 'tags#index'
+  get 'tags/:tag', to: 'tags#show', as: :tag
+  resources :tags, except: :show
+
 
   #Search routes
   get "search", to: 'search#search'

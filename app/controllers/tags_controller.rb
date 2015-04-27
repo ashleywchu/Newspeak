@@ -1,18 +1,11 @@
 class TagsController < ApplicationController
-	
-	def new
-	end
-
-	def create
+	def show
+		@tag = Tag.find(params["tag"])
+		@articles = Article.tagged_with(@tag.name)
 	end
 
 	def index
-	end
-
-	def edit
-	end
-
-	def show
+		@tags = Tag.all
 	end
 
 end
