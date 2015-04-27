@@ -6,7 +6,7 @@ class TagsController < ApplicationController
 
 	def index
 		binding.pry
-		@tags = Article.tag_counts_on(:tags)
+		@tags = Tag.all
 	end
 
 end
