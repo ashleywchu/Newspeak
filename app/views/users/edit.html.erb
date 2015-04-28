@@ -1,0 +1,10 @@
+<%= form_for @user, :html => {class: 'form-horizontal'} do |f| %>
+  <div class="form-group">
+    <%= f.label :name, "Username: ", :class => "control-label"%>
+    <%= f.text_field :name, :class => "form-control" %><br>
+  </div>
+  <div class="form-group">
+    <%= f.label :paypal_email, "Paypal Email (to receive tips with): ", :class => "control-label"%>
+    <%= f.text_field :paypal_email, :class => "form-control" %><br>
+  </div>
+<% end %>
