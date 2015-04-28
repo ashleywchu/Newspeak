@@ -13,6 +13,8 @@ class Article < ActiveRecord::Base
   
   def self.title_search(search)
     search(search).limit(5).pluck(:title)
+    search(search).limit(5).pluck(:tags)
+    search(search).limit(5).pluck(:author)
   end
 
 end

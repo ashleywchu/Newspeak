@@ -14,5 +14,4 @@
 //= require jquery-ui
 //= require bootstrap
 //= require_tree ../../../vendor/assets/javascripts/.
-//= require tags
-
+//= require search
