@@ -9,12 +9,11 @@ class UsersController < ApplicationController
 
 	def update
     @user = User.find(params[:id])
-     if @user.update_attributes(user_params)
-        redirect_to :back, notice: 'Your account information was successfully updated.'
-     else
-        @users = User.find(:all)
-        render :action => 'edit', notice: ''
-     end
+    if @user.update(user_params)
+      redirect_to "/newscolumn/#{@user.id}", notice: 'Your account information was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
+    end
  	end
 
 	def newsfeed
@@ -28,5 +27,11 @@ class UsersController < ApplicationController
 	def newscolumn
 		@user = User.find_by_id(params[:id]) || User.first
 	end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :paypal_email)
+  end
 
 end
