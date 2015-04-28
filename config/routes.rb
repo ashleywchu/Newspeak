@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   #User routes
   get 'newsfeed/:id', to: 'users#newsfeed'
   get 'newscolumn/:id', to: 'users#newscolumn'
-  resources :users, except: [:update]
+  resources :users
 
   #Subscription routes
   post 'subscribe', to: 'subscriptions#create'

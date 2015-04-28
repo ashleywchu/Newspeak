@@ -1,0 +1,28 @@
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <ul class="nav">
+        <%= link_to "Home", "/" %>
+        |
+        <%= link_to "Search", "/search" %>
+        |
+        <% if current_user %>
+        <%= link_to "My News Feed", "/newsfeed/#{current_user.id}" %>
+        |
+        <%= link_to "My News Column", "/newscolumn/#{current_user.id}" %>
+        |
+        <%= link_to "Create New Article", "/articles/new" %>
+        |
+        <%= link_to 'Your Conversations', conversations_path %>
+        |
+        <%= link_to 'Edit Profile', edit_user_path(current_user) %>
+        |
+        <%= link_to "Logout", "/logout" %>
+        <% else %>
+          <%= link_to "Login",  "/auth/google_oauth2" %>
+        <% end %>
+      </ul>
+
+    </div>
+  </div>
+</div>
