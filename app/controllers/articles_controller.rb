@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+
 	def new
 		@article = Article.new
 	end
@@ -18,6 +19,15 @@ class ArticlesController < ApplicationController
 		@articles = Article.find_with_reputation(:votes, :all, order: "votes desc") 
 	end
 
+	def tag_index
+	  if params[:tag]
+	    @articles = Article.tagged_with(params[:tag])
+	  else
+	    @articles = Article.all
+	  end
+	  	@tags = params["tag"]
+	end
+
 	def edit
 		@article = Article.find(params[:id])
 	end
@@ -25,6 +35,11 @@ class ArticlesController < ApplicationController
 	def show
 		@article = Article.find(params[:id])
 		@comment = Comment.new
+	end
+
+	def tag_show
+		@tag = params["tag"]
+		@articles = Article.tagged_with(@tag.name)
 	end
 
 	def update
