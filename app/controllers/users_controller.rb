@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to "/newscolumn/#{@user.id}", notice: 'Your account information was successfully updated.'
     else
-      render :edit, status: :unprocessable_entity
+      render :edit
     end
  	end
 
