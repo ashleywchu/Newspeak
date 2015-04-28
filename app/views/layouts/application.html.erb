@@ -1,53 +1,55 @@
 <!DOCTYPE html>
 <html>
-      <head>
-        <title>Newspeak</title>
-        <%= stylesheet_link_tag    'application', media: 'all' %>
-        <%= javascript_include_tag 'application' %>
-        <%= csrf_meta_tags %>
-        <%= analytics_init if Rails.env.production? %>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-         <div class="navbar navbar-fixed-top">
+<head>
+    <title>Newspeak</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+    <%= analytics_init if Rails.env.production? %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
-        <div class="container">
-           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-           <div class="nav-collapse pull-right">
-            <ul class="nav">
-        <%= link_to "Home", "/" %>
-        |
-        <%= link_to "Search", "/search" %>
-        |
-        <% if current_user %>
-        <%= link_to "My News Feed", "/newsfeed/#{current_user.id}" %>
-        |
-        <%= link_to "My News Column", "/newscolumn/#{current_user.id}" %>
-        |
-        <%= link_to "Create New Article", "/articles/new" %>
-        |
-        <%= link_to 'Your Conversations', conversations_path %>
-        |
-        <% end %>
-        <% if current_user %>
-        <%= link_to "Logout", "/logout" %>
-        <% else %>
-        <%= link_to "Login",  "/auth/google_oauth2" %>
-        <% end %>
-      </head>
-    </ul>
+            <div class="container">
+             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="nav-collapse pull-right">
+                <ul class="nav">
+                    <%= link_to "Home", "/" %>
+                    |
+                    <%= link_to "Search", "/search" %>
+                    |
+                    <% if current_user %>
+                    <%= link_to "My News Feed", "/newsfeed/#{current_user.id}" %>
+                    |
+                    <%= link_to "My News Column", "/newscolumn/#{current_user.id}" %>
+                    |
+                    <%= link_to "Create New Article", "/articles/new" %>
+                    |
+                    <%= link_to 'Your Conversations', conversations_path %>
+                    |
+                    <% end %>
+                    <% if current_user %>
+                    <%= link_to "Logout", "/logout" %>
+                    <% else %>
+                    <%= link_to "Login",  "/auth/google_oauth2" %>
+                    <% end %>
+                </head>
+            </ul>
+        </div>
     </div>
-    </div>
-    </div>
-    </div>
-    <body>
+</div>
+</div>
+<body>
     <center>
-      <%= yield %>
+        <a class="twitter-timeline" href="https://twitter.com/search?q=from%3Awikileaks%20OR%20from%3Aadbusters%20OR%20from%3Acrimethinc%20OR%20from%3Aalternet" data-widget-id="593051258761646080">Tweets about from:wikileaks OR from:adbusters OR from:crimethinc OR from:alternet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        <%= yield %>
     </center>
-    </body>
+</body>
 
 </html>
