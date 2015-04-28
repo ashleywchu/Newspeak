@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html>
-      <head>
-        <title>Newspeak</title>
-        <%= stylesheet_link_tag    'application', media: 'all' %>
-        <%= javascript_include_tag 'application' %>
-        <%= csrf_meta_tags %>
-        <%= analytics_init if Rails.env.production? %>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-         <div class="navbar navbar-fixed-top">
+<head>
+    <title>Newspeak</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+    <%= analytics_init if Rails.env.production? %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
-        <div class="container">
-           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-           <div class="nav-collapse pull-right">
-            <ul class="nav">
-        <%= link_to "Home", "/" %>
-        |
-        <%= link_to "Search", "/search" %>
-        |
-        <% if current_user %>
-        <%= link_to "My News Feed", "/newsfeed/#{current_user.id}" %>
-        |
-        <%= link_to "My News Column", "/newscolumn/#{current_user.id}" %>
-        |
-        <%= link_to "Create New Article", "/articles/new" %>
-        |
-        <%= link_to 'Your Conversations', conversations_path %>
-        |
-        <% end %>
-        <% if current_user %>
-        <%= link_to "Logout", "/logout" %>
-        <% else %>
-        <%= link_to "Login",  "/auth/google_oauth2" %>
-        <% end %>
-      </head>
-    </ul>
+            <div class="container">
+             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="nav-collapse pull-right">
+                <ul class="nav">
+                    <%= link_to "Home", "/" %>
+                    |
+                    <%= link_to "Search", "/search" %>
+                    |
+                    <% if current_user %>
+                    <%= link_to "My News Feed", "/newsfeed/#{current_user.id}" %>
+                    |
+                    <%= link_to "My News Column", "/newscolumn/#{current_user.id}" %>
+                    |
+                    <%= link_to "Create New Article", "/articles/new" %>
+                    |
+                    <%= link_to 'Your Conversations', conversations_path %>
+                    |
+                    <% end %>
+                    <% if current_user %>
+                    <%= link_to "Logout", "/logout" %>
+                    <% else %>
+                    <%= link_to "Login",  "/auth/google_oauth2" %>
+                    <% end %>
+                </head>
+            </ul>
+        </div>
     </div>
-    </div>
-    </div>
-    </div>
-    <body>
+</div>
+</div>
+<body>
     <center>
-      <%= yield %>
+        <%= yield %>
     </center>
-    </body>
+</body>
 
 </html>

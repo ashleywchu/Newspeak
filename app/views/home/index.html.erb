@@ -3,49 +3,21 @@
 
 <h4>Real Unbiased News From Citizens Like You</h4>
 
-<h5> Most Popular Articles: </h5>
-<style>
-	.box {
-		border: 1px solid grey ;}
-	</style>
+<h2> Most Popular Articles: </h5>
 
-	<% Home.most_popular.each do |article| %>
-	<div class="box">
-		<br>
-		<br>
-		<h5>
-			<%= link_to "+", vote_article_path(article, {type: "up", value: article.reputation_for(:votes)}), method: "post" %>
-		</h5>
-		<h5>
-			<%= link_to "-", vote_article_path(article, {type: "down", value: article.reputation_for(:votes)}), method: "post" %>
-		</h5>
-		Rep: <%= article.reputation_for(:votes).to_i ||= 0 %> &nbsp;&nbsp;&nbsp;&nbsp;
-		Title: <%= article.title %> &nbsp;&nbsp;&nbsp;&nbsp;
-		Abstract: <%= article.abstract %>
-		<br>
-		<br>
-	</div>
-	<% end %>
-	<br>
-	<hr>
-	<br>
+	<style>
+		.box {
+			border: 1px solid grey ;}
+		</style>
 
-<h5>Most Recent Articles: </h5>
-	<% Home.most_recent.each do |article| %>
-	<div class="box">
+		<%= render 'partials/mostpopulartemplate' %>
+
 		<br>
 		<br>
-		<h5>
-			<%= link_to "+", vote_article_path(article, {type: "up", value: article.reputation_for(:votes)}), method: "post" %>
-		</h5>
-		<h5>
-			<%= link_to "-", vote_article_path(article, {type: "down", value: article.reputation_for(:votes)}), method: "post" %>
-		</h5>
-		Date: <%= article.created_at %>
-		Rep: <%= article.reputation_for(:votes).to_i ||= 0 %> &nbsp;&nbsp;&nbsp;&nbsp;
-		Title: <%= article.title %> &nbsp;&nbsp;&nbsp;&nbsp;
-		Abstract: <%= article.abstract %>
-		<br>
-		<br>
-	</div>
-	<% end %>
+
+		<h2>Most Recent Articles: </h5>
+
+			<%= render 'partials/mostrecenttemplate' %>
+
+<a class="twitter-timeline" href="https://twitter.com/search?q=from%3Awikileaks%20OR%20from%3Aadbusters%20OR%20from%3Acrimethinc%20OR%20from%3Aalternet" data-widget-id="593051258761646080">Tweets about from:wikileaks OR from:adbusters OR from:crimethinc OR from:alternet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>

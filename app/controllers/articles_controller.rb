@@ -1,12 +1,7 @@
 class ArticlesController < ApplicationController
+
 	def new
 		@article = Article.new
-		@articles = Article.find_with_reputation(:votes, :all, order: "votes desc")
-		# @article.tags.build
-	end
-
-	def index
-		@articles = Article.all
 	end
 
 	def create
@@ -20,6 +15,19 @@ class ArticlesController < ApplicationController
 		end
 	end
 
+	def index
+		@articles = Article.find_with_reputation(:votes, :all, order: "votes desc") 
+	end
+
+	def tag_index
+	  if params[:tag]
+	    @articles = Article.tagged_with(params[:tag])
+	  else
+	    @articles = Article.all
+	  end
+	  	@tags = params["tag"]
+	end
+
 	def edit
 		@article = Article.find(params[:id])
 	end
@@ -27,6 +35,11 @@ class ArticlesController < ApplicationController
 	def show
 		@article = Article.find(params[:id])
 		@comment = Comment.new
+	end
+
+	def tag_show
+		@tag = params["tag"]
+		@articles = Article.tagged_with(@tag.name)
 	end
 
 	def update
@@ -52,13 +65,10 @@ class ArticlesController < ApplicationController
 	end
 
 	def vote
-		# Unable to display 0 value, not sure if persists across multiple users.
-		# value = params[:type] == "up" ? params[:value] = params[:value].to_i + 1 : params[:value] = params[:value].to_i - 1
 		value = params[:type] == "up" ? 1 : -1
 		@article = Article.find(params[:id])
-		# @article.add_or_update_evaluation(:votes, params[:value], current_user)
-			@article.add_or_update_evaluation(:votes, value, current_user)
-			redirect_to :back
+		@article.add_or_update_evaluation(:votes, value, current_user)
+		redirect_to :back
 	end
 
 	private

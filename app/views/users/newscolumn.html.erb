@@ -1,34 +1,18 @@
 <h1><%= @user.name %>'s News Column</h1>
 
-<% @user.articles.each do |article| %>
-
 <style>
 	.box {
 		border: 1px solid grey ;}
 	</style>
 
-	<!-- Needs to link to the article show page -->
-	<div class="box">
-		<br>
-			<h5>
-				<%= link_to "+", vote_article_path(article, {type: "up", value: article.reputation_for(:votes)}), method: "post" %>
-			</h5>
-			<h5>
-			<%= link_to "-", vote_article_path(article, {type: "down", value: article.reputation_for(:votes)}), method: "post" %>
-			</h5>
-		Reputation: <%= article.reputation_for(:votes).to_i ||= 0 %> &nbsp;&nbsp;&nbsp;&nbsp;
-		Title: <%= article.title %> &nbsp;&nbsp;&nbsp;&nbsp;
-		Abstract: <%= article.abstract %><p>
-	</div>
-	<% end %>
-	<br>
+	<%= render 'partials/newscolumntemplate' %>
 
 	Subscribers: <h1><%= @user.subscribers.count%></h1>
 	<% if current_user %>
 	<% if Subscription.find_by_author_id_and_reader_id(@user.id, current_user.id) %>
-	<%= render 'unsubscribe' %> 
+	<%= render 'partials/unsubscribe' %> 
 	<% else %> 
-	<%= render 'subscribe' %>
+	<%= render 'partials/subscribe' %>
 	<% end %>
 	<% else %>
 	<h4>You must be logged in to subscribe.</h4>
