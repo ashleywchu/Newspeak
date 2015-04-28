@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20150428144342) do
     t.text     "abstract"
     t.text     "sources"
     t.text     "body"
-    t.integer  "rep"
     t.integer  "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -28,7 +27,6 @@ ActiveRecord::Schema.define(version: 20150428144342) do
     t.text     "body"
     t.integer  "user_id"
     t.integer  "article_id"
-    t.integer  "rep"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

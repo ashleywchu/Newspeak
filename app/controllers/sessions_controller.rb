@@ -11,6 +11,11 @@ class SessionsController < ApplicationController
     redirect_to "/"
   end
 
+  def demo
+    session[:user_id] = "5"
+    redirect_to "/"
+  end
+
   private
   def auth
     request.env["omniauth.auth"]
