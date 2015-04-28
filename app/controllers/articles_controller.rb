@@ -22,8 +22,6 @@ class ArticlesController < ApplicationController
 	def tag_index
 	  if params[:tag]
 	    @articles = Article.tagged_with(params[:tag])
-	  else
-	    @articles = Article.all
 	  end
 	  	@tags = params["tag"]
 	end
