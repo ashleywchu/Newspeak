@@ -1,7 +1,12 @@
 class ArticlesController < ApplicationController
 	def new
 		@article = Article.new
+		@articles = Article.find_with_reputation(:votes, :all, order: "votes desc")
 		# @article.tags.build
+	end
+
+	def index
+		@articles = Article.all
 	end
 
 	def create
@@ -13,10 +18,6 @@ class ArticlesController < ApplicationController
 				format.html { render action: 'new' }
 			end
 		end
-	end
-
-	def index
-		@articles = Article.find_with_reputation(:votes, :all, order: "votes desc") 
 	end
 
 	def edit
