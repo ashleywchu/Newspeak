@@ -1,0 +1,22 @@
+<% @user.subscriptions.each do |subscription| %>
+<% if subscription.author %>
+<h3> Author: <%= subscription.author.name %> </h3>
+<% subscription.author.articles.each do |article| %>
+
+
+<div class="box">
+	<br>
+	<h5>
+		<%= link_to "+", vote_article_path(article, {type: "up", value: article.reputation_for(:votes)}), method: "post" %>
+	</h5>
+	<h5>
+		<%= link_to "-", vote_article_path(article, {type: "down", value: article.reputation_for(:votes)}), method: "post" %>
+	</h5>
+	Reputation: <%= article.reputation_for(:votes).to_i ||= 0 %> &nbsp;&nbsp;&nbsp;&nbsp;
+	Title: <%= article.title %> &nbsp;&nbsp;&nbsp;&nbsp;
+	Abstract: <%= article.abstract %><p>
+</div>
+
+<% end %>
+<% end %>
+<% end %>

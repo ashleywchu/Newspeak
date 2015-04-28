@@ -33,12 +33,10 @@ Rails.application.routes.draw do
   #messages
   resources :messages, only: [:new, :create]
 
-  
   #Tags routes
-  get 'tags', to: 'tags#index'
-  get 'tags/:tag', to: 'tags#show', as: :tag
-  resources :tags, except: :show
-
+  # get 'tags', to: 'tags#index'
+  get 'tags/:tag', to: 'articles#tag_index', as: :tag
+  # resources :tags, except: :show
 
   #Search routes
   get "search", to: 'search#search'
