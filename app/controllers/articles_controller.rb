@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
 	def new
 		@article = Article.new
-		# @article.tags.build
 	end
 
 	def create
@@ -51,13 +50,10 @@ class ArticlesController < ApplicationController
 	end
 
 	def vote
-		# Unable to display 0 value, not sure if persists across multiple users.
-		# value = params[:type] == "up" ? params[:value] = params[:value].to_i + 1 : params[:value] = params[:value].to_i - 1
 		value = params[:type] == "up" ? 1 : -1
 		@article = Article.find(params[:id])
-		# @article.add_or_update_evaluation(:votes, params[:value], current_user)
-			@article.add_or_update_evaluation(:votes, value, current_user)
-			redirect_to :back
+		@article.add_or_update_evaluation(:votes, value, current_user)
+		redirect_to :back
 	end
 
 	private
