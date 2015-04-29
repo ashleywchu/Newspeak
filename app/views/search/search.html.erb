@@ -11,7 +11,7 @@
 
 	<% if @title_results %>
 	<% @title_results.each do |result| %>
-	<%= link_to "#{result.title}", "article/#{result.id}" %>
+	<%= link_to "#{result.title}", "articles/#{result.id}" %>
 	<% end %>
 	<% end %>
 	
@@ -31,7 +31,7 @@
 
 	<% if @tag_results %>
 	<% @tag_results.each do |result| %>
-	<%= link_to "#{result.title}", "article/#{result.id}" %>
+	<%= link_to "#{result.title}", "articles/#{result.id}" %>
 	<% end %>
 	<% end %>
 
