@@ -1,5 +1,10 @@
 Newspeak - Awesome Citizen Journalism<br><br>
 
+<div id="images">
+  <% for image in @article.images %>
+<div id="images">
+</div>
+
 <%= @article.title %><br>
 Written by: <%= @article.author.name %><br>
 Date: <%= @article.created_at.to_formatted_s(:m_d_y_time) %><br>

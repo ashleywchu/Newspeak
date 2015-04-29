@@ -5,17 +5,16 @@ class Article < ActiveRecord::Base
 	# has_many :article_tags
 	# has_many :tags, through: :article_tags
   # accepts_nested_attributes_for :tags
-  acts_as_taggable  
+  acts_as_taggable
+  mount_uploader :image, ImageUploader
 end
 
-  def self.search(search)
-    where('title LIKE ?', "%#{search}%")
-  end
-  
-  def self.title_search(search)
-    search(search).limit(5).pluck(:title)
-    search(search).limit(5).pluck(:tags)
-    search(search).limit(5).pluck(:author)
-  end
+def self.search(search)
+  where('title LIKE ?', "%#{search}%")
+end
 
+def self.title_search(search)
+  search(search).limit(5).pluck(:title)
+  search(search).limit(5).pluck(:tags)
+  search(search).limit(5).pluck(:author)
 end

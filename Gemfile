@@ -15,6 +15,10 @@ gem "omniauth-google-oauth2"
 #hides api keys
 gem "figaro"
 
+# carrierwave and fog for upoading media
+gem "carrierwave"
+gem "fog"
+
 # article tags gem
 gem 'acts-as-taggable-on', '~> 3.4'
 
