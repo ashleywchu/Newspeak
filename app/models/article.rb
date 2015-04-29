@@ -10,3 +10,15 @@ class Article < ActiveRecord::Base
   validates_uniqueness_of :title
   validates_presence_of :title, :abstract, :body
 end
+
+  def self.search(search)
+    where('title LIKE ?', "%#{search}%")
+  end
+  
+  def self.title_search(search)
+    search(search).limit(5).pluck(:title)
+    search(search).limit(5).pluck(:tags)
+    search(search).limit(5).pluck(:author)
+  end
+
+end
