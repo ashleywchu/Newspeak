@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
     if @user.unique_username?(user_params[:name])
       @user.update(user_params)
-      redirect_to "/newscolumn/#{@user.id}", notice: 'Your account information was successfully updated.'
+      redirect_to "/newscolumn/#{@user.id}", notice: 'Your account information has been successfully updated.'
     else
       flash[:notice] = []
       if @user.unique_username?(user_params[:name]) == false

@@ -1,24 +1,17 @@
 <h1><%= @user.name %>'s News Column</h1>
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: "alert alert-info" %>
-  <% end %>
-<% @user.articles.each do |article| %>
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: "alert alert-info" %>
+<% end %>
 
+<%= render 'partials/newscolumntemplate' %>
 
-<style>
-	.box {
-		border: 1px solid grey ;}
-</style>
-
-	<%= render 'partials/newscolumntemplate' %>
-
-	Subscribers: <h1><%= @user.subscribers.count%></h1>
-	<% if current_user %>
+Subscribers: <h1><%= @user.subscribers.count%></h1>
+<% if current_user %>
 	<% if Subscription.find_by_author_id_and_reader_id(@user.id, current_user.id) %>
-	<%= render 'partials/unsubscribe' %> 
+		<%= render 'partials/unsubscribe' %> 
 	<% else %> 
-	<%= render 'partials/subscribe' %>
+		<%= render 'partials/subscribe' %>
 	<% end %>
-	<% else %>
+<% else %>
 	<h4>You must be logged in to subscribe.</h4>
-	<% end %>
+<% end %>
