@@ -14,12 +14,26 @@ class User < ActiveRecord::Base
 
   def self.create_with_omniauth(auth)
       User.create(
-      :name => auth.info.name,
+      # :name => auth.info.name,
       :provider => auth.provider,
       :uid => auth.uid,
       :email => auth.info.email
       )
   end
 
-  validates_format_of :paypal_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/
+  def valid_paypal_email?(user_paypal_email)
+    if user_paypal_email =~ /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i 
+    else
+      return false
+    end
+  end
+
+  def unique_username?(user_name)
+    @users = User.all
+    if @users.find_by_name(user_name).nil?
+      return true
+    else
+      return false
+    end
+  end
 end

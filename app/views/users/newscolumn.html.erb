@@ -1,9 +1,14 @@
 <h1><%= @user.name %>'s News Column</h1>
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: "alert alert-info" %>
+  <% end %>
+<% @user.articles.each do |article| %>
+
 
 <style>
 	.box {
 		border: 1px solid grey ;}
-	</style>
+</style>
 
 	<%= render 'partials/newscolumntemplate' %>
 
