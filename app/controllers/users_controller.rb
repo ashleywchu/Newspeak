@@ -9,9 +9,18 @@ class UsersController < ApplicationController
 
 	def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
+
+    if @user.unique_username?(user_params[:name])
+      @user.update(user_params)
       redirect_to "/newscolumn/#{@user.id}", notice: 'Your account information was successfully updated.'
     else
+      flash[:notice] = []
+      if @user.unique_username?(user_params[:name]) == false
+        flash[:notice] << 'That username has already been taken. Please enter another username.'
+      end
+      if @user.valid_paypal_email?(user_params[:paypal_email]) == false
+        flash[:notice] << 'Invalid email.'
+      end
       render :edit
     end
  	end

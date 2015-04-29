@@ -1,8 +1,25 @@
-<h2>Edit Account Settings</h2>
+<% if current_user.name.nil? %>
+  <div>
+    <p>
+      Welcome to Newspeak! Please set your Username. You may also include the email that is linked 
+      to your PayPal account if you wish to receive tips for your writing.
+    </p>
+  </div>
+<% else %>
+  <h2>Edit Account Settings</h2>
+<% end %>
+<div>
+  <% if flash[:notice] %>
+    <ul>
+    <% flash[:notice].each do |n| %>
+      <li><%= n %></li>
+    <% end %> 
+    </ul>
+  <% end %> 
+</div>
 
 <div class="col-sm-10">
   <%= form_for @user, :html => {class: 'form-horizontal'} do |f| %>
-
     <% if @user.errors.any? %>
       <div id="error_explanation">
         <h4><%= pluralize(@user.errors.count, "error") %> prohibited your changes from being saved:</h4>
@@ -26,10 +43,9 @@
         <%= f.text_field :paypal_email, :class => "form-control", placeholder: "Paypal email" %>
       </div>
     </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-2">
+    <div class="col-sm-offset-2 inline">
         <%= f.submit "Submit Changes", :class => "btn btn-default" %>
-      </div>
+        <button class="btn btn-default back">Back</button>
     </div>
   <% end %>
 </div>
