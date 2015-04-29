@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+
   #conversations
   resources :conversations, only: [:index, :show, :destroy] do
     member do
@@ -41,6 +42,7 @@ Rails.application.routes.draw do
   #Search routes
   get "search", to: 'search#search'
   post "result", to: 'search#result'
+  get 'search_suggestions', to: 'search#autocomplete'
   
   #Authentication routes
   get 'auth/:provider/callback', to: 'sessions#create'
