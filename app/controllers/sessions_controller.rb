@@ -1,8 +1,9 @@
 class SessionsController < ApplicationController
 
   def create
-    user = User.find_by_provider_and_uid(auth[:provider], auth[:uid]) || user = User.create_with_omniauth(auth)
-    session[:user_id] = user.id
+    user = User.find_by_provider_and_uid(auth[:provider], auth[:uid]) || new_user = User.create_with_omniauth(auth)
+    UserMailer.welcome_email(new_user).deliver_now if new_user
+    session[:user_id] = user.id || new_user.id
     redirect_to "/"
   end
 
