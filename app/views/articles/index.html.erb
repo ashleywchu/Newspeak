@@ -7,7 +7,6 @@ Tag Cloud: <div id="tag_cloud">
 <% @articles.each do |article| %>
 	<ul>
 	<%= article.title %><br>
-	<%= article.tag_list %>
 	<%= raw article.tag_list.map {|tag| link_to tag, tag_path(tag)}.join(', ') %>
 	</ul>
 <% end %>
