@@ -17,6 +17,8 @@ class ArticlesController < ApplicationController
 
 	def index
 		@articles = Article.find_with_reputation(:votes, :all, order: "votes desc") 
+		@uploader = Article.new.image
+		@uploader.success_action_redirect = new_image_url	
 	end
 
 	def tag_index

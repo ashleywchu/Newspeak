@@ -11,6 +11,11 @@
 </div>
 <% end %>
 
+<%= direct_upload_form_for @uploader do |f| %>
+<p><%= f.file_field :image %></p>
+<p><%= f.submit "Upload Image" %></p>
+<% end %>
+
 <div class="field">
   <%= f.label :title %><br>
   <%= f.text_field :title %><br>

@@ -1,9 +1,9 @@
 Newspeak - Awesome Citizen Journalism<br><br>
 
 <div id="images">
-  <% for image in @article.images %>
-<div id="images">
+  <% render @images %>
 </div>
+<div class="clear"></div>
 
 <%= @article.title %><br>
 Written by: <%= @article.author.name %><br>

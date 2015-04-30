@@ -17,7 +17,10 @@ gem "figaro"
 
 # carrierwave and fog for upoading media
 gem "carrierwave"
+gem "carrierwave_direct"
+gem "rmagick"
 gem "fog"
+gem "sidekiq"
 
 # article tags gem
 gem 'acts-as-taggable-on', '~> 3.4'
