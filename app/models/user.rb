@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   end
 
   def valid_email?(user_paypal_email)
-    if user_paypal_email =~ /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i || user_paypal_email.nil?
+    if user_paypal_email == "" || user_paypal_email =~ /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i 
       return true
     else
       return false
