@@ -9,7 +9,6 @@ class Article < ActiveRecord::Base
 
   validates_uniqueness_of :title
   validates_presence_of :title, :abstract, :body
-end
 
   def self.search(search)
     where('title LIKE ?', "%#{search}%")
