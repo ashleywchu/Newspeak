@@ -16,10 +16,9 @@ Tags: <%= raw @article.tag_list.map {|tag| link_to tag, tag_path(tag)}.join(', '
 </div>
 
 
-<!-- Tip doesn't work because we haven't allowed users to add their PayPal email. -->
 <div>
   <% if current_user %>
-  <button><%= link_to "Tip", "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=#{@article.author.paypal_email}&lc=US&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted"%></button>
+  <button><%= link_to "Tip", "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=#{@article.author.paypal_email}&lc=US&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted", :target => "blank"%></button>
   <% end %>
 </div>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>

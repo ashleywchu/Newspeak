@@ -3,10 +3,10 @@
 		<br>
 		<br>
 		<h5>
-			<%= link_to "+", vote_article_path(article, {type: "up", value: article.reputation_for(:votes)}), method: "post" %>
+			<%= link_to "+", vote_article_path(article, {type: "up", value: article.reputation_for(:votes)}), method: "post", :class => "btn btn-default" %>
 		</h5>
 		<h5>
-			<%= link_to "-", vote_article_path(article, {type: "down", value: article.reputation_for(:votes)}), method: "post" %>
+			<%= link_to "-", vote_article_path(article, {type: "down", value: article.reputation_for(:votes)}), method: "post", :class => "btn btn-default" %>
 		</h5>
 		Date: <%= article.created_at %>
 		Rep: <%= article.reputation_for(:votes).to_i ||= 0 %> &nbsp;&nbsp;&nbsp;&nbsp;

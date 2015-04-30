@@ -2,13 +2,15 @@
 <div class="box">
 	<br>
 	<br>
+	<% if current_user %>
 	<h5>
-		<%= link_to "+", vote_article_path(article, {type: "up", value: article.reputation_for(:votes)}), method: "post" %>
+		<%= link_to "+", vote_article_path(article, {type: "up", value: article.reputation_for(:votes)}), method: "post", :class => "btn btn-default" %>
 	</h5>
 	<h5>
-		<%= link_to "-", vote_article_path(article, {type: "down", value: article.reputation_for(:votes)}), method: "post" %>
+		<%= link_to "-", vote_article_path(article, {type: "down", value: article.reputation_for(:votes)}), method: "post", :class => "btn btn-default" %>
 	</h5>
-	Rep: <%= article.reputation_for(:votes).to_i ||= 0 %> &nbsp;&nbsp;&nbsp;&nbsp;
+	<% end %>
+	Rep: <%= article.reputation_for(:votes).to_i %> &nbsp;&nbsp;&nbsp;&nbsp;
 	Title: <%= article.title %> &nbsp;&nbsp;&nbsp;&nbsp;
 	Abstract: <%= article.abstract %>
 	<br>

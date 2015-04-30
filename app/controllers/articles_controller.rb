@@ -2,7 +2,6 @@ class ArticlesController < ApplicationController
 	def new
 		@article = Article.new
 		@articles = Article.find_with_reputation(:votes, :all, order: "votes desc")
-		# @article.tags.build
 	end
 
 	def index
@@ -57,8 +56,8 @@ class ArticlesController < ApplicationController
 		value = params[:type] == "up" ? 1 : -1
 		@article = Article.find(params[:id])
 		# @article.add_or_update_evaluation(:votes, params[:value], current_user)
-			@article.add_or_update_evaluation(:votes, value, current_user)
-			redirect_to :back
+		@article.add_or_update_evaluation(:votes, value, current_user)
+		redirect_to :back
 	end
 
 	private
