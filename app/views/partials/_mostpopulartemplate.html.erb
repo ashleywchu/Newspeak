@@ -1,19 +1,13 @@
-<% Home.most_popular.each do |article| %>
-<div class="box">
-	<br>
-	<br>
-	<% if current_user %>
-	<h5>
-		<%= link_to "+", vote_article_path(article, {type: "up", value: article.reputation_for(:votes)}), method: "post", :class => "btn btn-default" %>
-	</h5>
-	<h5>
-		<%= link_to "-", vote_article_path(article, {type: "down", value: article.reputation_for(:votes)}), method: "post", :class => "btn btn-default" %>
-	</h5>
-	<% end %>
-	Rep: <%= article.reputation_for(:votes).to_i %> &nbsp;&nbsp;&nbsp;&nbsp;
-	Title: <%= article.title %> &nbsp;&nbsp;&nbsp;&nbsp;
-	Abstract: <%= article.abstract %>
-	<br>
-	<br>
+<div>
+		<% Home.most_popular.each do |article| %>
+		<div class="box">
+			<% if current_user %>
+				<h5><%= link_to "+", vote_article_path(article, {type: "up", value: article.reputation_for(:votes)}), method: "post", :class => "btn btn-default" %></h5>
+				<h5><%= link_to "-", vote_article_path(article, {type: "down", value: article.reputation_for(:votes)}), method: "post", :class => "btn btn-default" %></h5>
+			<% end %>
+			Rep: <%= article.reputation_for(:votes).to_i %> &nbsp;&nbsp;&nbsp;&nbsp;
+			Title: <%= article.title %> &nbsp;&nbsp;&nbsp;&nbsp;
+			Abstract: <%= article.abstract %>
+		</div>
+		<% end %>
 </div>
-<% end %>
