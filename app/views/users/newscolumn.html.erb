@@ -5,7 +5,7 @@
 
 <%= render 'partials/newscolumntemplate' %>
 
-Subscribers: <h1><%= @user.subscribers.count%></h1>
+Subscribers: <h1><%= @user.subscribers.count %></h1>
 <% if current_user %>
 	<% if Subscription.find_by_author_id_and_reader_id(@user.id, current_user.id) %>
 		<%= render 'partials/unsubscribe' %> 

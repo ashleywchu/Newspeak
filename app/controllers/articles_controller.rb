@@ -2,7 +2,6 @@ class ArticlesController < ApplicationController
 	def new
 		@article = Article.new
 		@articles = Article.find_with_reputation(:votes, :all, order: "votes desc")
-		# @article.tags.build
 	end
 
 	def index

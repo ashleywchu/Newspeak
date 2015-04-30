@@ -12,7 +12,7 @@ config.action_mailer.default_url_options = {:host => "localhost:3000"}
   config.uses_emails = true
 
   #Configures the default from for emails sent for Messages and Notifications
-  config.default_from = "no-reply@mailboxer.com"
+  config.default_from = "notice.newspeak@gmail.com"
 
   #Configures the methods needed by mailboxer
   config.email_method = :mailboxer_email
