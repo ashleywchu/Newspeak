@@ -7,11 +7,14 @@
 
 Subscribers: <h1><%= @user.subscribers.count %></h1>
 <% if current_user %>
-	<% if Subscription.find_by_author_id_and_reader_id(@user.id, current_user.id) %>
-		<%= render 'partials/unsubscribe' %> 
-	<% else %> 
-		<%= render 'partials/subscribe' %>
-	<% end %>
-<% else %>
+	<% if current_user.id == @user.id %>
+		<% else %>
+			<% if Subscription.find_by_author_id_and_reader_id(@user.id, current_user.id) %>
+				<%= render 'partials/unsubscribe' %> 
+			<% else %> 
+				<%= render 'partials/subscribe' %>
+			<% end %>
+		<% end %>
+	<% else %>
 	<h4>You must be logged in to subscribe.</h4>
 <% end %>
