@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#pagination
+gem 'kaminari'
+
 #mailboxer
 gem 'mailboxer'
 gem 'bootstrap-will_paginate'
