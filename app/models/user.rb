@@ -23,19 +23,21 @@ class User < ActiveRecord::Base
       )
   end
 
-  def valid_paypal_email?(user_paypal_email)
-    if user_paypal_email =~ /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i 
+  def valid_email?(user_paypal_email)
+    if user_paypal_email =~ /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i || user_paypal_email.nil?
+      return true
     else
       return false
     end
   end
 
-  def unique_username?(user_name)
-    @users = User.all
-    if @users.find_by_name(user_name).nil?
-      return true
-    else
+  def unique_username?(username)
+    users = User.all
+    usernames = users.collect{|user| user.name.downcase}
+    if usernames.include?(username.downcase)
       return false
+    else
+      return true
     end
   end
 end
