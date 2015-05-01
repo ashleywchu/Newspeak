@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
 
   def organize_articles_by_date
     @articles = subscriptions.collect {|sub| sub.author.articles}.flatten!   
-    binding.pry 
+
     @articles.sort! do |p1, p2| 
       p2.created_at <=> p1.created_at
     end

@@ -3,7 +3,7 @@
 </div>
 
 <% if @user.subscriptions.empty? %>
-  <h3> You don't have any subscriptions. </h3>
+  <div><h3> You don't have any subscriptions. </h3></div>
 <% else %>
   <div>
   <%= render 'partials/newsfeedtemplate' %>

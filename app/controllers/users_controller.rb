@@ -34,7 +34,10 @@ class UsersController < ApplicationController
 			redirect_to "newsfeed/#{current_user.id}" 
 		else
 			@user = current_user
-      @articles_by_date = @user.organize_articles_by_date
+      if @user.subscriptions.empty?
+      else
+        @articles_by_date = @user.organize_articles_by_date
+      end
 		end
 	end
 
