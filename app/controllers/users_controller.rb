@@ -34,7 +34,6 @@ class UsersController < ApplicationController
 			redirect_to "newsfeed/#{current_user.id}" 
 		else
 			@user = current_user
-      # binding.pry
       @articles_by_date = @user.organize_articles_by_date
 		end
 	end
