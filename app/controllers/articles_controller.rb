@@ -19,6 +19,20 @@ class ArticlesController < ApplicationController
 		end
 	end
 
+	def tag_index
+	  if params[:tag]
+	    @articles = Article.tagged_with(params[:tag])
+	  else
+	    @articles = Article.all
+	  end
+	  	@tags = params["tag"]
+	end
+
+	def tag_show
+		@tag = params["tag"]
+		@articles = Article.tagged_with(@tag.name)
+	end
+
 	def edit
 		@article = Article.find(params[:id])
 	end
