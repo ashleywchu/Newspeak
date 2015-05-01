@@ -1,18 +1,22 @@
+<div>
 	<% Home.most_recent.each do |article| %>
-	<div class="box">
-		<br>
-		<br>
-		<h5>
-			<%= link_to "+", vote_article_path(article, {type: "up", value: article.reputation_for(:votes)}), method: "post", :class => "btn btn-default" %>
-		</h5>
-		<h5>
-			<%= link_to "-", vote_article_path(article, {type: "down", value: article.reputation_for(:votes)}), method: "post", :class => "btn btn-default" %>
-		</h5>
-		Date: <%= article.created_at %>
-		Rep: <%= article.reputation_for(:votes).to_i ||= 0 %> &nbsp;&nbsp;&nbsp;&nbsp;
-		Title: <%= article.title %> &nbsp;&nbsp;&nbsp;&nbsp;
-		Abstract: <%= article.abstract %>
-		<br>
-		<br>
+	<div class="row">
+		<div class="col-md-3 pull-left text-center well">
+		<% if current_user %>
+			<div class="btn-group">
+				<div class="">
+				 Reputation: <h3 class="text-center"><%= article.reputation_for(:votes).to_i ||= 0 %></h3><br>
+				</div>
+				<%= link_to "+", vote_article_path(article, {type: "up", value: article.reputation_for(:votes)}), method: "post", :class => "btn btn-default" %>
+				<%= link_to "-", vote_article_path(article, {type: "down", value: article.reputation_for(:votes)}), method: "post", :class => "btn btn-default" %>
+			</div>
+		<% end %>
+		</div>
+		<div class="col-md-9 pull-right">
+	    <h3><%= link_to article.title, article_path(article) %></h3>
+	    <h4> By: <%= article.author.name %>&nbsp;&nbsp;&nbsp;&nbsp;<%= article.created_at.to_formatted_s(:m_d_y_time) %> </h4>
+    	<p>Abstract: <%= article.abstract %></p>
+  	</div>
 	</div>
 	<% end %>
+</div>

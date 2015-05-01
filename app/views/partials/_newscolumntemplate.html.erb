@@ -1,13 +1,9 @@
 <% @user.articles.each do |article| %>
 <div class="col-md-offset-1 col-md-10 well inline-block">
-	<div class="col-md-1 pull-left ">
-      <div class="btn-group">
-        <div class="text-center">
-          <div>Reputation:</div><div class=""><%= article.reputation_for(:votes).to_i ||= 0 %></div><br>
-        </div>
-        <%= link_to "+", vote_article_path(article, {type: "up", value: article.reputation_for(:votes)}), method: "post", :class => "btn btn-default" %>
-        <%= link_to "-", vote_article_path(article, {type: "down", value: article.reputation_for(:votes)}), method: "post", :class => "btn btn-default" %>
-      </div>
+  <div class="col-md-1 pull-left btn-group">
+    Reputation: <h3 class="text-center"><%= article.reputation_for(:votes).to_i ||= 0 %></h3><br>
+    <%= link_to "+", vote_article_path(article, {type: "up", value: article.reputation_for(:votes)}), method: "post", :class => "btn btn-default" %>
+    <%= link_to "-", vote_article_path(article, {type: "down", value: article.reputation_for(:votes)}), method: "post", :class => "btn btn-default" %>
   </div>
 	<div class="col-md-10">
     <h3><%= link_to article.title, article_path(article) %> </h3>
