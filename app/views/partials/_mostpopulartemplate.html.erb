@@ -14,7 +14,7 @@
 		</div>
 		<div class="col-md-9 pull-right">
 			<h3><%= link_to article.title, article_path(article) %></h3>
-			<h4> By: <%= link_to "#{article.author.name}", "newscolumn/#{article.author.name}" %> &nbsp;&nbsp;&nbsp;&nbsp;
+			<h4> By: <%= link_to "#{article.author.name}", "newscolumn/#{article.author.id}" %> &nbsp;&nbsp;&nbsp;&nbsp;
 				<%= article.created_at.to_formatted_s(:m_d_y_time) %> </h4>
 				<p>Abstract: <%= article.abstract %></p>
 			</div>
