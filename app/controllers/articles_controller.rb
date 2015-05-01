@@ -59,7 +59,7 @@ class ArticlesController < ApplicationController
 		@article = Article.find(params[:id])
 		@article.destroy
 		respond_to do |format|
-			format.html { redirect_to '/newscolumn/#{current_user.id}' }
+			format.html { redirect_to '/newscolumn/:id' }
 			format.json { head :no_content }
 		end
 	end
