@@ -1,4 +1,4 @@
-	<%= form_tag({action: "destroy", controller: "subscriptions"})%>
-	<%= hidden_field_tag(:author_id, @user.id) %>
-	<%= hidden_field_tag(:reader_id, current_user.id) %>
-	<%= submit_tag "Unsubscribe" %>
+<% form_tag({action: "destroy", controller: "subscriptions"})%>
+<% hidden_field_tag(:author_id, @user.id) %>
+<% hidden_field_tag(:reader_id, current_user.id) %>
+<%= submit_tag "Unsubscribe", :class => "btn btn-default"  %>

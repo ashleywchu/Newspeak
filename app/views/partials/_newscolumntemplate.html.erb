@@ -1,19 +1,19 @@
 <% @user.articles.each do |article| %>
-
-
-<!-- Needs to link to the article show page -->
-<div class="box">
-	<br>
-	<h5>
-		<%= link_to "+", vote_article_path(article, {type: "up", value: article.reputation_for(:votes)}), method: "post", :class => "btn btn-default" %>
-	</h5>
-	<h5>
-		<%= link_to "-", vote_article_path(article, {type: "down", value: article.reputation_for(:votes)}), method: "post", :class => "btn btn-default" %>
-	</h5>
-	Reputation: <%= article.reputation_for(:votes).to_i ||= 0 %> &nbsp;&nbsp;&nbsp;&nbsp;
-	Title: <%= article.title %> &nbsp;&nbsp;&nbsp;&nbsp;
-	Abstract: <%= article.abstract %><p>
+<div class="col-md-offset-1 col-md-10 well inline-block">
+	<div class="col-md-1 pull-left ">
+      <div class="btn-group">
+        <div class="text-center">
+          <div>Reputation:</div><div class=""><%= article.reputation_for(:votes).to_i ||= 0 %></div><br>
+        </div>
+        <%= link_to "+", vote_article_path(article, {type: "up", value: article.reputation_for(:votes)}), method: "post", :class => "btn btn-default" %>
+        <%= link_to "-", vote_article_path(article, {type: "down", value: article.reputation_for(:votes)}), method: "post", :class => "btn btn-default" %>
+      </div>
+  </div>
+	<div class="col-md-10">
+    <h3><%= link_to article.title, article_path(article) %> </h3>
+    <h4> By: <%= article.author.name %>&nbsp;&nbsp;&nbsp;&nbsp;<%= article.created_at.to_formatted_s(:m_d_y_time) %> </h4>
+    <p>Abstract: <%= article.abstract %></p>
+  </div>
 <%= link_to "Edit Article", "/articles/#{article.id}/edit", :class => "btn btn-default" %>
 </div>
 <% end %>
-<br>

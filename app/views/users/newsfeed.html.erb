@@ -1,13 +1,11 @@
-<h1><%= @user.name %>'s News Feed</h1>
+<div class="text-center inline-block">
+  <h1><%= @user.name %>'s News Feed</h1>
+</div>
+
 <% if @user.subscriptions.empty? %>
-<br>
-<br>
-<h1> You don't have any subscriptions. </h1>
+  <h3> You don't have any subscriptions. </h3>
 <% end %>
 
-<style>
-	.box {
-		border: 1px solid grey ;}
-	</style>
-
+<div>
 <%= render 'partials/newsfeedtemplate' %>
+</div>

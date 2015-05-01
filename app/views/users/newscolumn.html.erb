@@ -1,20 +1,32 @@
-<h1><%= @user.name %>'s News Column</h1>
+<div class="text-center inline-block">
+	<h1><%= @user.name %>'s News Column</h1>
+
+	<div class="pull-right col-md-1">
+		<% if current_user %>
+			<% if current_user.id == @user.id %>
+			<% else %>
+					<% if Subscription.find_by_author_id_and_reader_id(@user.id, current_user.id) %>
+						<%= render 'partials/unsubscribe' %> 
+					<% else %> 
+						<%= render 'partials/subscribe' %>
+					<% end %>
+			<% end %>
+		<% else %>
+			<h4>You must be logged in to subscribe.</h4>
+		<% end %>
+	</div>
+</div>
+
+<div class="text-center">
+	<div class="col-md-offset-5 col-md-2 ">
+	Subscribers: <h3><%= @user.subscribers.count %></h3>
+	</div>
+</div>
+
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, class: "alert alert-info" %>
 <% end %>
 
+<div>
 <%= render 'partials/newscolumntemplate' %>
-
-Subscribers: <h1><%= @user.subscribers.count %></h1>
-<% if current_user %>
-	<% if current_user.id == @user.id %>
-		<% else %>
-			<% if Subscription.find_by_author_id_and_reader_id(@user.id, current_user.id) %>
-				<%= render 'partials/unsubscribe' %> 
-			<% else %> 
-				<%= render 'partials/subscribe' %>
-			<% end %>
-		<% end %>
-	<% else %>
-	<h4>You must be logged in to subscribe.</h4>
-<% end %>
+</div>

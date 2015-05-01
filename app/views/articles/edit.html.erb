@@ -1,53 +1,55 @@
-<h2>Edit: <%= @article.title %></h2>
-<div class="col-md-offset-2 col-xs-12 col-sm-6 col-md-8">
+<div class="text-center"><h2>Edit: <%= @article.title %></h2></div>
+<div class="col-md-offset-2 col-xs-12 col-sm-6 col-md-8 well">
 <%= form_for(@article) do |f| %>
-<% if @article.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@article.errors.count, "error") %> prohibited this post from being saved:</h2>
+  <% if @article.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@article.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>`
-    <% end %>
-  </ul>
-</div>
-<% end %>
+    <ul>
+      <% @article.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>`
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <div class="form-horizontal">
+  <div class="form-group">
+    <%= f.label :title, "Title: ", :class => "col-sm-2 control-label"%>
+    <div class="col-sm-10">
+      <%= f.text_field :title, :class => "form-control" %>
+    </div>
+  </div>
 
-<div class="form-group">
-  <%= f.label :title, "Title: ", :class => "col-sm-2 control-label"%>
-  <div class="col-sm-10">
-    <%= f.text_field :title, :class => "form-control" %>
+  <div class="form-group">
+    <%= f.label :abstract, "Abstract: ", :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :abstract, :class => "form-control", :rows => "5" %>
+    </div>
   </div>
-</div>
-<div class="form-group">
-  <%= f.label :abstract, "Abstract: ", :class => "col-sm-2 control-label" %>
-  <div class="col-sm-10">
-    <%= f.text_area :abstract, :class => "form-control", :rows => "5" %>
+  <div class="form-group">
+    <%= f.label :sources, "Sources: ", :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :sources, :class => "form-control", :rows => "3" %> 
+    </div>
   </div>
-</div>
-<div class="form-group">
-  <%= f.label :sources, "Sources: ", :class => "col-sm-2 control-label" %>
-  <div class="col-sm-10">
-    <%= f.text_area :sources, :class => "form-control", :rows => "3" %> 
+  <div class="form-group">
+    <%= f.label :body, "Body: ", :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :body, :class => "form-control", :rows => "10" %>
+    </div>
   </div>
-</div>
-<div class="form-group">
-  <%= f.label :body, "Body: ", :class => "col-sm-2 control-label" %>
-  <div class="col-sm-10">
-    <%= f.text_area :body, :class => "form-control", :rows => "10" %>
+  <div class="form-group">
+    <%= f.label :tag_list, "Tags (separate by commas)", :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :tag_list, :class => "form-control" %>
+    </div>
   </div>
-</div>
-<div class="form-group">
-  <%= f.label :tag_list, "Tags (separate by commas)", :class => "col-sm-2 control-label" %>
-  <div class="col-sm-10">
-    <%= f.text_field :tag_list, :class => "form-control" %>
+
+  <div class="actions col-sm-offset-2 inline">
+    <%= f.submit "Commit Edits", :class => "btn btn-default" %>
+    <a href="/articles/<%= @article.id %>" class="btn btn-default">Back</a>
   </div>
 </div>
 
-<div class="actions col-sm-offset-2 inline">
-  <%= f.submit "Commit Edits", :class => "btn btn-default" %>
-  <a href="/articles/<%= @article.id %>" class="btn btn-default">Back</a>
-</div>
-<br>
 <% end %>
 </div>

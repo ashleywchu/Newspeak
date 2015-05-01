@@ -1,38 +1,37 @@
-	<h1>Search</h1>
+<div class="col-md-offset-3 col-md-6">
+	<div class="well text-center">
+		<div class="">
+			<h1>Search</h1>
+			<%= form_tag "result", :method => 'post', :html => {class: 'form-group'} do %>
+				<%= text_field_tag "search[name]"%>
+				<%= submit_tag "Search", :class => "btn btn-default" %>
+			<% end %>
+		</div>
+		<div class="">
+			<div class="center"><h3>Title Matches</h3></div>
+			<% if @title_results %>
+				<% @title_results.each do |result| %>
+					<%= link_to "#{result.title}", "articles/#{result.id}" %>
+				<% end %>
+			<% end %>
+		</div>
+		<div class="">
+			<h3>Author Matches</h3>
 
-	<%= form_tag "result", :method => 'post' do %>
-	<p>
-		<%= text_field_tag "search[name]"%>
-		<%= submit_tag "Search" %>
-	</p>
-	<% end %>
+			<% if @author_results %>
+				<% @author_results.each do |result| %>
+					<%= link_to "#{result.name}", "newscolumn/#{result.id}" %>
+				<% end %>
+			<% end %>
+		</div>
+		<div class="">
+			<h3>Tag Matches</h3>
 
-	<h3>Title Matches</h3>
-
-	<% if @title_results %>
-	<% @title_results.each do |result| %>
-	<%= link_to "#{result.title}", "articles/#{result.id}" %>
-	<% end %>
-	<% end %>
-	
-	<br>
-
-	<h3>Author Matches</h3>
-
-	<% if @author_results %>
-	<% @author_results.each do |result| %>
-	<%= link_to "#{result.name}", "newscolumn/#{result.id}" %>
-	<% end %>
-	<% end %>
-
-	<br>
-
-	<h3>Tag Matches</h3>
-
-	<% if @tag_results %>
-	<% @tag_results.each do |result| %>
-	<%= link_to "#{result.title}", "articles/#{result.id}" %>
-	<% end %>
-	<% end %>
-
-	<br>
+			<% if @tag_results %>
+				<% @tag_results.each do |result| %>
+					<%= link_to "#{result.title}", "articles/#{result.id}" %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

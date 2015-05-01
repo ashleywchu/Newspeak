@@ -1,29 +1,31 @@
 <div class="well">
-<%= @article.title %>
-Written by: <%= @article.author.name %>
-Date: <%= @article.created_at.to_formatted_s(:m_d_y_time) %>
-Abstract: <%= @article.abstract %>
-Sources: <%= @article.sources %>
-Body: <%= @article.body %>
-Tags: <%= raw @article.tag_list.map {|tag| link_to tag, tag_path(tag)}.join(', ') %>
+  <h2><%= @article.title %></h2>
+  <h4>By: <%= @article.author.name %></h4>
+  <h4>Date: <%= @article.created_at.to_formatted_s(:m_d_y_time) %></h4>
+  <p><strong>Abstract:</strong> <%= @article.abstract %></p>
+  <p><strong>Sources:</strong> <%= @article.sources %></p>
+  <p><strong>Body:</strong> <%= @article.body %></p>
+  <p><strong>Tags:</strong> <%= raw @article.tag_list.map {|tag| link_to tag, tag_path(tag)}.join(', ') %></p>
 </div>
+
 <% if current_user.id == @article.author_id %>
   <%= link_to "Edit Article", "/articles/#{@article.id}/edit", :class => "btn btn-default" %>
   <%= link_to "Delete Article", @article, method: :delete, :data => {:confirm => "Are you sure?"}, :class => "btn btn-default" %>
 <% end %>
 <div>
-  <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-hashtags="Newspeak" data-dnt="true">Tweet</a>
+  <div>
+    <% if current_user %>
+    <%= link_to "Tip", "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=#{@article.author.paypal_email}&lc=US&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted", :target => "blank", :class => "btn btn-default"%>
+    <% end %>
+  </div>
+  <div>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-hashtags="Newspeak" data-dnt="true">Tweet</a>
+  </div>
 </div>
 
-
-<div>
-  <% if current_user %>
-  <button><%= link_to "Tip", "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=#{@article.author.paypal_email}&lc=US&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted", :target => "blank"%></button>
-  <% end %>
-</div>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
-Comments:
+<h3>Comments:</h3>
 
 <ul class="list-group">
 	<li class="list-group-item list-inline">
