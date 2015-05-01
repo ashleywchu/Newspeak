@@ -7,10 +7,10 @@ def run_seed
 end
 
 def make_users
-	User.create(:name => "Shawn", :email => "shawn@awesome.com", :uid => "10459824168315769673", :provider => "google_oauth2")
-	User.create(:name => "Keith", :email => "keith@awesome.com", :uid => "103062603984495647486", :provider => "google_oauth2")
-	User.create(:name => "Ashley", :email => "ashley@awesome.com", :uid => "113638395038993757289", :provider => "google_oauth2")
-	User.create(:name => "Sanj", :email => "sjchakrav@gmail.com", :uid => "104583935941508057228", :provider => "google_oauth2")
+	User.create(:name => "Amadeus Foxtrot Heimlich", :email => "shawn@awesome.com", :uid => "10459824168315769673", :provider => "google_oauth2")
+	User.create(:name => "Vox Populi", :email => "keith@awesome.com", :uid => "103062603984495647486", :provider => "google_oauth2")
+	User.create(:name => "Micro A", :email => "ashley@awesome.com", :uid => "113638395038993757289", :provider => "google_oauth2")
+	User.create(:name => "Sanj Van Buuren", :email => "sjchakrav@gmail.com", :uid => "104583935941508057228", :provider => "google_oauth2")
 	User.create(:name => "Demo", :email => "future_employer@awesome.com", :uid => "111122223333444455556", :provider => "awesome")
 end
 
