@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   #User routes
   get 'newsfeed/:id', to: 'users#newsfeed'
-  get 'newscolumn/:name', to: 'users#newscolumn'
+  get 'newscolumn/:id', to: 'users#newscolumn'
   get 'journalists', to: 'users#index'
   resources :users
 
