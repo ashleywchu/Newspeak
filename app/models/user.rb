@@ -32,7 +32,8 @@ class User < ActiveRecord::Base
 
   def unique_username?(username)
     users = User.all
-    usernames = users.collect{|user| user.name.downcase}
+    array_usernames = users.pluck(:name).compact
+    usernames = array_usernames.map!{|user| user.downcase}
     if usernames.include?(username.downcase)
       return false
     else
