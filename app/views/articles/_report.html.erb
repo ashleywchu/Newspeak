@@ -1,4 +1,6 @@
-<%= form_for(@article), :html => {multipart: :true} do |f| %>
+<%= form_for @article, :html => {:multipart => true} do |f| %>
+<%= f.file_field :image %>
+
 <% if @article.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(@article.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -15,6 +17,12 @@
 <p><%= f.file_field :image %></p>
 <p><%= f.submit "Upload Image" %></p>
 <% end %>
+<%= f.hidden_field :key %>
+
+
+<p><%= f.file_field :image %></p>
+
+<p>File: <%= @article.image_name %></p>
 
 <div class="field">
   <%= f.label :title %><br>
@@ -27,7 +35,6 @@
   <%= f.text_area :body %><br>
   <%= f.label :tag_list, "Tags (separate by commas)" %><br>
   <%= f.text_field :tag_list %><br>
-  <%= f.file_field :image %>
 </div>
 
 <div class="actions">

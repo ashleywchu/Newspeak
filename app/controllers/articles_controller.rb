@@ -5,7 +5,11 @@ class ArticlesController < ApplicationController
 	end
 
 	def create
+		binding.pry
 		@article = Article.new(article_params)
+		@image = Image.new(key: params[:key])
+		@uploader = Article.image
+		@uploader.success_action_redirect = new_image_url	
 		respond_to do |format|
 			if @article.save
 				format.html { redirect_to @article, notice: 'The news was successfully reported.'}
@@ -17,19 +21,19 @@ class ArticlesController < ApplicationController
 
 	def index
 		@articles = Article.find_with_reputation(:votes, :all, order: "votes desc") 
-		@uploader = Article.new.image
-		@uploader.success_action_redirect = new_image_url	
 	end
 
 	def tag_index
-	  if params[:tag]
-	    @articles = Article.tagged_with(params[:tag])
-	  end
-	  	@tags = params["tag"]
+		if params[:tag]
+			@articles = Article.tagged_with(params[:tag])
+		end
+		@tags = params["tag"]
 	end
 
 	def edit
 		@article = Article.find(params[:id])
+		@uploader = Article.image
+		@uploader.success_action_redirect = new_image_url	
 	end
 
 	def show
@@ -73,7 +77,7 @@ class ArticlesController < ApplicationController
 
 	private
 	def article_params
-		params.require(:article).permit(:author_id, :title, :abstract, :sources, :body, :tag_list).merge(:author_id => current_user.id)
+		params.require(:article).permit(:author_id, :title, :abstract, :sources, :image, :body, :tag_list).merge(:author_id => current_user.id)
 	end
 
 end
