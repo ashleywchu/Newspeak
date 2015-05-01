@@ -4,7 +4,7 @@
   <ul>
   <% @users.each do |user| %>
     <li>
-    <h4><%= link_to user.name, "/newscolumn/#{user.name}" %></h4>
+    <h4><%= link_to user.name, "/newscolumn/#{user.id}" %></h4>
     <h5>Reporting Since: <%= user.created_at.strftime("%m/%d/%Y") %></h5>
     </li>
   <% end %>
