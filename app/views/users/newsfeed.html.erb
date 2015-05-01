@@ -4,6 +4,7 @@
 
 <% if @user.subscriptions.empty? %>
   <div><h3> You don't have any subscriptions. </h3></div>
+  <h4>Check out these other <a href="/journalists">journalists</a> and <a href="/articles">articles</a> published on Newspeak.</h4>
 <% else %>
   <div>
   <%= render 'partials/newsfeedtemplate' %>
