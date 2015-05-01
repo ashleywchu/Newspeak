@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if @user.name == user_params[:name] || @user.unique_username?(user_params[:name])
       if @user.valid_email?(user_params[:paypal_email])
         @user.update(user_params)
-        redirect_to "/newscolumn/#{@user.id}", notice: 'Your account information has been successfully updated.'
+        redirect_to "/newscolumn/#{@user.name}", notice: 'Your account information has been successfully updated.'
       elsif @user.valid_email?(user_params[:paypal_email]) == false
         flash[:notice] << 'Invalid email.'
         render :edit
