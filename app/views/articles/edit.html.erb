@@ -47,6 +47,7 @@
 
   <div class="actions col-sm-offset-2 inline">
     <%= f.submit "Commit Edits", :class => "btn btn-default" %>
+    <%= link_to "Delete Article", @article, method: :delete, :data => {:confirm => "Are you sure?"}, :class => "btn btn-default" %>
     <a href="/articles/<%= @article.id %>" class="btn btn-default">Back</a>
   </div>
 </div>

@@ -4,8 +4,9 @@
 
 <% if @user.subscriptions.empty? %>
   <h3> You don't have any subscriptions. </h3>
+<% else %>
+  <div>
+  <%= render 'partials/newsfeedtemplate' %>
+  </div>
 <% end %>
 
-<div>
-<%= render 'partials/newsfeedtemplate' %>
-</div>
