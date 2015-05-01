@@ -20,7 +20,7 @@
 
 			<% if @author_results %>
 				<% @author_results.each do |result| %>
-					<%= link_to "#{result.name}", "newscolumn/#{result.name}" %>
+					<%= link_to "#{result.name}", "newscolumn/#{result.id}" %>
 				<% end %>
 			<% end %>
 		</div>

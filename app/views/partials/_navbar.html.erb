@@ -9,7 +9,7 @@
         <% if current_user %>
         <%= link_to "My News Feed", "/newsfeed/#{current_user.id}" %>
         |
-        <%= link_to "My News Column", "/newscolumn/#{current_user.name}" %>
+        <%= link_to "My News Column", "/newscolumn/#{current_user.id}" %>
         |
         <%= link_to "Create New Article", "/articles/new" %>
         |
